@@ -1,4 +1,4 @@
-#配置数据源
+# 配置数据源
 spring:
   datasource:
     druid:
@@ -54,7 +54,7 @@ curator:
   # 连接超时时间
   connectionTimeoutMs: 5000
 
-
+# 配置 redisson 参数
 redisson:
   lock:
     server:
