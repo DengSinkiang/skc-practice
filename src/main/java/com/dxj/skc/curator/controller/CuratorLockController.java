@@ -1,7 +1,7 @@
-package com.dxj.skc.controller;
+package com.dxj.skc.curator.controller;
 
 import com.dxj.skc.domain.vo.Result;
-import com.dxj.skc.util.DistributedLockByCurator;
+import com.dxj.skc.curator.util.DistributedLockByCurator;
 import com.dxj.skc.util.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/hello")
-public class LockController {
+public class CuratorLockController {
 
     @Autowired
     private DistributedLockByCurator distributedLockByCurator;

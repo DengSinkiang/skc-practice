@@ -53,3 +53,12 @@ curator:
   sessionTimeoutMs: 60000
   # 连接超时时间
   connectionTimeoutMs: 5000
+
+
+redisson:
+  lock:
+    server:
+      address: 127.0.0.1:6379
+      type: standalone
+      password:
+      database: 0
