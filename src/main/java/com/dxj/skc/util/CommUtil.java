@@ -9,6 +9,10 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * @author
+ * @date
+ */
 @Slf4j
 public class CommUtil {
 
@@ -77,8 +81,8 @@ public class CommUtil {
         return (null == l || -1 == l);
     }
 
-    public static boolean isEmptyInt(Integer i) {
-        return (null == i || -1 == i);
+    public static boolean isEmptyInt(int i) {
+        return -1 == i;
     }
 
     public static boolean isEmptyBoolean(Boolean i) {

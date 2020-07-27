@@ -8,6 +8,7 @@ import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.time.temporal.WeekFields;
 import java.util.*;
@@ -244,7 +245,6 @@ public abstract class DateUtils {
     public static String getDateStrFromLong(long dateLong, DateTimeFormatter sdFormat) {
         return sdFormat.format(LocalDateTime.ofEpochSecond(dateLong / 1000, 0, ZoneOffset.ofHours(8)));
     }
-
 
 
     /**
@@ -1281,6 +1281,12 @@ public abstract class DateUtils {
         return getTodayStart() + ONE_DAY_SECOND * 1000 - 1;
     }
 
+    public static LocalDate plus(LocalDate localDate, int between, ChronoUnit chronoUnit) {
+
+        return localDate.plus(between, chronoUnit);
+
+    }
+
     public static void main(String[] args) {
 //        Date date = toDateWithoutSecond("2017-01-25 08:30");
 //        String s = "2018-04-30 08:30:30";
@@ -1310,6 +1316,7 @@ public abstract class DateUtils {
         System.out.println(getCurrentDate());
         System.out.println(getCurrentYear());
         System.out.println(getPreviousMonthStart("2020/04/13 00:00:00"));
+        System.out.println(plus(LocalDate.now(), 2, ChronoUnit.DAYS));
 
     }
 }
