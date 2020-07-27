@@ -131,7 +131,7 @@
             <version>1.18.12</version>
             <optional>true</optional>
         </dependency>
-        <!--    zk 分布式锁    -->
+        <!--    zk 分布式锁 begin   -->
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
@@ -173,12 +173,18 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!--    zk 分布式锁    -->
-        <!--    redisson    -->
+        <!--    zk 分布式锁 end   -->
+        <!--    redisson  begin  -->
         <dependency>
             <groupId>org.redisson</groupId>
             <artifactId>redisson</artifactId>
             <version>3.5.4</version>
+        </dependency>
+        <!--    redisson  end  -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.72</version>
         </dependency>
     </dependencies>
 

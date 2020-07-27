@@ -1,5 +1,6 @@
 package com.dxj.skc.redisson.annotation;
 
+import com.dxj.skc.exception.SkException;
 import com.dxj.skc.redisson.RedissonLock;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -27,7 +28,7 @@ public class DistributedLockHandler {
 
 
     @Around("@annotation(distributedLock)")
-    public void around(ProceedingJoinPoint joinPoint, DistributedLock distributedLock) {
+    public Object around(ProceedingJoinPoint joinPoint, DistributedLock distributedLock) {
         log.info("[开始]执行RedisLock环绕通知,获取Redis分布式锁开始");
         // 获取锁名称
         String lockName = distributedLock.value();
@@ -47,5 +48,10 @@ public class DistributedLockHandler {
             }
         }
         log.info("释放Redis分布式锁[成功]，解锁完成，结束业务逻辑...");
+        try {
+            return joinPoint.proceed();
+        } catch (Throwable throwable) {
+            throw new SkException("出现异常");
+        }
     }
 }
