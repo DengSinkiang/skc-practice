@@ -35,20 +35,20 @@ spring:
         url-pattern: /*
         exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
 
-  #配置 Jpa
+  # 配置 Jpa
   jpa:
     hibernate:
       # 生产环境设置成 none，避免程序运行时自动更新数据库结构
       ddl-auto: none
 
-
+# 配置 curator 参数
 curator:
   # 重试次数
   retryCount: 5
   # 重试间隔时间
   elapsedTimeMs: 5000
   # zookeeper 地址
-  connectString: 192.168.39.44:12181
+  connectString: 127.0.0.1:12181
   # session 超时时间
   sessionTimeoutMs: 60000
   # 连接超时时间
