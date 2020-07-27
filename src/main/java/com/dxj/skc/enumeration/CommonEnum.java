@@ -7,11 +7,20 @@ package com.dxj.skc.enumeration;
  * @CopyRight: 2020 sk-admin all rights reserved.
  */
 public enum CommonEnum {
+    /**
+     * 正常标志
+     */
     STATUS_NORMAL(0),
+    /**
+     * 禁用标志
+     */
     STATUS_DISABLE(-1),
+    /**
+     * 删除标志
+     */
     DEL_FLAG(1);
 
-    private CommonEnum(int status) {
+    CommonEnum(int status) {
         this.status = status;
     }
 
