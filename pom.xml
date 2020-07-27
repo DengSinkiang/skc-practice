@@ -54,7 +54,7 @@
         </dependency>
         <!--Spring boot end-->
 
-        <!--spring2.0集成redis所需common-pool2-->
+        <!-- spring2.0集成redis所需common-pool2 -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
@@ -65,14 +65,14 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
 
-        <!--工具包-->
+        <!-- 工具包 -->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>5.2.5</version>
         </dependency>
 
-        <!--监控sql日志-->
+        <!-- 监控 sql 日志 -->
         <dependency>
             <groupId>org.bgee.log4jdbc-log4j2</groupId>
             <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
@@ -111,26 +111,27 @@
             <version>1.5.21</version>
         </dependency>
 
-        <!--Mysql依赖包-->
+        <!--Mysql 依赖包-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <!-- druid数据源驱动 -->
+        <!-- druid 数据源驱动 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>${druid.version}</version>
         </dependency>
 
-        <!--lombok插件-->
+        <!-- lombok 插件 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.12</version>
             <optional>true</optional>
         </dependency>
+        <!--    zk 分布式锁    -->
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
@@ -172,6 +173,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!--    zk 分布式锁    -->
     </dependencies>
 
     <build>

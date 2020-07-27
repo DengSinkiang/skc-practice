@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @Description:
- * @Author: dengxj29231
+ * @Author: Sinkiang
  * @Date: 2020/7/27 11:17
- * @CopyRight: 2020 skc all rights reserved.
+ * @CopyRight: 2020 sk-admin all rights reserved.
  */
 @RestController
 @RequestMapping("/hello")
@@ -31,7 +31,6 @@ public class LockController {
             Thread.sleep(20000);
         } catch (InterruptedException e) {
             e.printStackTrace();
-            flag = distributedLockByCurator.releaseDistributedLock(PATH);
         }
         flag = distributedLockByCurator.releaseDistributedLock(PATH);
         return new ResultUtil<Boolean>().setData(flag);
@@ -45,7 +44,6 @@ public class LockController {
             Thread.sleep(15000);
         } catch (InterruptedException e) {
             e.printStackTrace();
-            flag = distributedLockByCurator.releaseDistributedLock(PATH);
         }
         flag = distributedLockByCurator.releaseDistributedLock(PATH);
         return new ResultUtil<Boolean>().setData(flag);

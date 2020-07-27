@@ -9,9 +9,9 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @Description:
- * @Author: dengxj29231
+ * @Author: Sinkiang
  * @Date: 2020/7/27 10:35
- * @CopyRight: 2020 skc all rights reserved.
+ * @CopyRight: 2020 sk-admin all rights reserved.
  */
 @Configuration
 public class CuratorConfiguration {

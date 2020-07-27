@@ -13,7 +13,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @Description:
+ * @Description: 基础控制类
  * @Author: Sinkiang
  * @Date: 2020/3/27 15:49
  * @CopyRight: 2020 sk-admin all rights reserved.

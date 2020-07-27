@@ -10,9 +10,9 @@ import java.util.stream.Collectors;
 
 /**
  * @Description:
- * @Author: dengxj29231
+ * @Author: Sinkiang
  * @Date: 2020/7/1 9:12
- * @CopyRight: 2020 skc all rights reserved.
+ * @CopyRight: 2020 sk-admin all rights reserved.
  */
 public class CopierUtil {
 
