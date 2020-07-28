@@ -48,7 +48,7 @@ curator:
   # 重试间隔时间
   elapsedTimeMs: 5000
   # zookeeper 地址
-  connectString: 192.168.39.44:12181
+  connectString: 127.0.0.1:12181
   # session 超时时间
   sessionTimeoutMs: 60000
   # 连接超时时间
