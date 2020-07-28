@@ -2,9 +2,12 @@ package com.dxj.skc.util;
 
 import lombok.extern.slf4j.Slf4j;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -16,10 +19,42 @@ import java.util.regex.Pattern;
  * @CopyRight: 2020 sk-admin all rights reserved.
  */
 @Slf4j
-public class CommUtil {
+public class CommUtils {
+
+    private static final String UNKNOWN = "unknown";
 
     /**
-     * 判断一个String是否为null或者空串?
+     * 获取ip地址
+     */
+    public static String getIp(HttpServletRequest request) {
+        String ip = request.getHeader("x-forwarded-for");
+        if (ip == null || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
+            ip = request.getHeader("Proxy-Client-IP");
+        }
+        if (ip == null || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
+            ip = request.getHeader("WL-Proxy-Client-IP");
+        }
+        if (ip == null || ip.length() == 0 || UNKNOWN.equalsIgnoreCase(ip)) {
+            ip = request.getRemoteAddr();
+        }
+        String comma = ",";
+        String localhost = "127.0.0.1";
+        if (ip.contains(comma)) {
+            ip = ip.split(",")[0];
+        }
+        if (localhost.equals(ip)) {
+            // 获取本机真正的ip地址
+            try {
+                ip = InetAddress.getLocalHost().getHostAddress();
+            } catch (UnknownHostException e) {
+                e.printStackTrace();
+            }
+        }
+        return ip;
+    }
+
+    /**
+     * 判断一个String是否为null或者空串
      *
      * @param string
      * @return
@@ -170,7 +205,7 @@ public class CommUtil {
 
     public static String getRootPath() {
 
-        return CommUtil.class.getResource("/").getPath();
+        return CommUtils.class.getResource("/").getPath();
     }
 
 
@@ -218,7 +253,7 @@ public class CommUtil {
     }
 
     public static String toTitle(String str) {
-        if (CommUtil.isEmptyString(str)) {
+        if (CommUtils.isEmptyString(str)) {
             return "";
         } else {
             return str.substring(0, 1).toUpperCase() + str.substring(1);
@@ -226,11 +261,11 @@ public class CommUtil {
     }
 
     public static String joinUrl(String root, String url) {
-        if (CommUtil.isEmptyString(root)) {
+        if (CommUtils.isEmptyString(root)) {
             return url;
         }
 
-        if (CommUtil.isEmptyString(url)) {
+        if (CommUtils.isEmptyString(url)) {
             return "";
         }
 
@@ -271,7 +306,7 @@ public class CommUtil {
 
 
     public static String idListToString(Collection<?> ids) {
-        if (CommUtil.isEmptyList(ids)) {
+        if (CommUtils.isEmptyList(ids)) {
             return "";
         } else {
             StringBuilder sb = new StringBuilder();
@@ -378,7 +413,7 @@ public class CommUtil {
      */
     public static Set<String> getUrlFromString(String content) {
         Set<String> urls = new HashSet<>();
-        if (!CommUtil.isEmptyString(content)) {
+        if (!CommUtils.isEmptyString(content)) {
             // 例:"http://ioss-dbdu.oss-cn-beijing.aliyuncs.com/upload/PROD_SYNOPSIS_IMAGE/20181217/2/Autumn_in_Kanas_by_Wang_Jinyu.jpg"
             String regUrl = "[a-zA-z]+://[^\\s\"$]*";
             Pattern _pattern = Pattern.compile(regUrl);

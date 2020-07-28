@@ -1,6 +1,6 @@
 package com.dxj.skc.redisson.strategy.impl;
 
-import com.dxj.skc.redisson.enumeration.GlobalConstantEnum;
+import com.dxj.skc.redisson.enumeration.RedisConstantEnum;
 import com.dxj.skc.redisson.entity.RedissonProperties;
 import com.dxj.skc.redisson.strategy.RedissonConfigService;
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +29,7 @@ public class ClusterConfigImpl implements RedissonConfigService {
             // 设置cluster节点的服务IP和端口
             for (String addrToken : addrTokens) {
                 config.useClusterServers()
-                        .addNodeAddress(GlobalConstantEnum.REDIS_CONNECTION_PREFIX.getConstantValue() + addrToken);
+                        .addNodeAddress(RedisConstantEnum.REDIS_CONNECTION_PREFIX.getConstantValue() + addrToken);
                 if (StringUtils.isNotBlank(password)) {
                     config.useClusterServers().setPassword(password);
                 }

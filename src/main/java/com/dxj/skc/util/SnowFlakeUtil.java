@@ -51,7 +51,8 @@ public class SnowFlakeUtil {
         }
 
         if (timestamp < lastTimestamp) {
-            log.error(String.format("clock moved backwards.Refusing to generate id for %d milliseconds", (lastTimestamp - timestamp)));
+            log.error(String.
+                    format("clock moved backwards.Refusing to generate id for %d milliseconds", (lastTimestamp - timestamp)));
             return -1;
         }
 
@@ -89,8 +90,9 @@ public class SnowFlakeUtil {
     }
 
     public static void main(String[] args) {
+        SnowFlakeUtil snowFlakeUtil;
         for (int i = 0; i < 100; i++) {
-            SnowFlakeUtil snowFlakeUtil = SnowFlakeUtil.getFlowIdInstance();
+            snowFlakeUtil = SnowFlakeUtil.getFlowIdInstance();
             System.out.println(snowFlakeUtil.nextId());
         }
     }

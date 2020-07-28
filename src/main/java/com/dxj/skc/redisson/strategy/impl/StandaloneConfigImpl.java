@@ -1,6 +1,6 @@
 package com.dxj.skc.redisson.strategy.impl;
 
-import com.dxj.skc.redisson.enumeration.GlobalConstantEnum;
+import com.dxj.skc.redisson.enumeration.RedisConstantEnum;
 import com.dxj.skc.redisson.entity.RedissonProperties;
 import com.dxj.skc.redisson.strategy.RedissonConfigService;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +23,7 @@ public class StandaloneConfigImpl implements RedissonConfigService {
             String address = redissonProperties.getAddress();
             String password = redissonProperties.getPassword();
             int database = redissonProperties.getDatabase();
-            String redisAddr = GlobalConstantEnum.REDIS_CONNECTION_PREFIX.getConstantValue() + address;
+            String redisAddr = RedisConstantEnum.REDIS_CONNECTION_PREFIX.getConstantValue() + address;
             config.useSingleServer().setAddress(redisAddr);
             config.useSingleServer().setDatabase(database);
             // 密码可以为空

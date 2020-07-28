@@ -2,9 +2,10 @@ package com.dxj.skc.limit.aspect;
 
 import com.dxj.skc.exception.SkException;
 import com.dxj.skc.limit.annotation.Limit;
-import com.dxj.skc.util.StringUtils;
+import com.dxj.skc.util.CommUtils;
 import com.google.common.collect.ImmutableList;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -50,7 +51,7 @@ public class LimitAspect {
         String key = limit.key();
         if (StringUtils.isEmpty(key)) {
             if (limitType == LimitTypeEnum.IP) {
-                key = StringUtils.getIp(request);
+                key = CommUtils.getIp(request);
             } else {
                 key = signatureMethod.getName();
             }

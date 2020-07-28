@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  * @Date: 2020/7/1 9:12
  * @CopyRight: 2020 sk-admin all rights reserved.
  */
-public class CopierUtil {
+public class CopierUtils {
 
     /**
      * 单个对象属性拷贝

@@ -1,6 +1,6 @@
 package com.dxj.skc.redisson.strategy.impl;
 
-import com.dxj.skc.redisson.enumeration.GlobalConstantEnum;
+import com.dxj.skc.redisson.enumeration.RedisConstantEnum;
 import com.dxj.skc.redisson.entity.RedissonProperties;
 import com.dxj.skc.redisson.strategy.RedissonConfigService;
 import lombok.extern.slf4j.Slf4j;
@@ -39,7 +39,7 @@ public class MasterslaveConfigImpl implements RedissonConfigService {
             // 设置从节点，移除第一个节点，默认第一个为主节点
             List<String> slaveList = new ArrayList<>();
             for (String addrToken : addrTokens) {
-                slaveList.add(GlobalConstantEnum.REDIS_CONNECTION_PREFIX.getConstantValue() + addrToken);
+                slaveList.add(RedisConstantEnum.REDIS_CONNECTION_PREFIX.getConstantValue() + addrToken);
             }
             slaveList.remove(0);
             String[] strings = new String[slaveList.size()];

@@ -6,7 +6,7 @@ package com.dxj.skc.redisson.enumeration;
  * @Date: 2020/7/27 10:35
  * @CopyRight: 2020 sk-admin all rights reserved.
  */
-public enum GlobalConstantEnum {
+public enum RedisConstantEnum {
 
     /**
      * xxx
@@ -16,7 +16,7 @@ public enum GlobalConstantEnum {
     private final String constantValue;
     private final String constantDesc;
 
-    GlobalConstantEnum(String constantValue, String constantDesc) {
+    RedisConstantEnum(String constantValue, String constantDesc) {
         this.constantValue = constantValue;
         this.constantDesc = constantDesc;
     }

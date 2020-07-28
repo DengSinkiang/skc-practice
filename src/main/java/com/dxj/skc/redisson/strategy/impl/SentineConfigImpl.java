@@ -1,7 +1,7 @@
 package com.dxj.skc.redisson.strategy.impl;
 
 
-import com.dxj.skc.redisson.enumeration.GlobalConstantEnum;
+import com.dxj.skc.redisson.enumeration.RedisConstantEnum;
 import com.dxj.skc.redisson.entity.RedissonProperties;
 import com.dxj.skc.redisson.strategy.RedissonConfigService;
 import lombok.extern.slf4j.Slf4j;
@@ -37,7 +37,7 @@ public class SentineConfigImpl implements RedissonConfigService {
             // 设置 sentinel 节点的服务 IP 和端口
             for (int i = 1; i < addrTokens.length; i++) {
                 config.useSentinelServers()
-                        .addSentinelAddress(GlobalConstantEnum.REDIS_CONNECTION_PREFIX.getConstantValue() + addrTokens[i]);
+                        .addSentinelAddress(RedisConstantEnum.REDIS_CONNECTION_PREFIX.getConstantValue() + addrTokens[i]);
             }
             log.info("初始化[哨兵部署]方式Config,redisAddress:" + address);
         } catch (Exception e) {
