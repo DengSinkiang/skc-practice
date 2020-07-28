@@ -3,6 +3,7 @@ package com.dxj.skc.redisson.config;
 import com.dxj.skc.redisson.RedissonLock;
 import com.dxj.skc.redisson.RedissonManager;
 import com.dxj.skc.redisson.entity.RedissonProperties;
+import lombok.extern.slf4j.Slf4j;
 import org.redisson.Redisson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,16 +23,15 @@ import org.springframework.core.annotation.Order;
 @Configuration
 @ConditionalOnClass(Redisson.class)
 @EnableConfigurationProperties(RedissonProperties.class)
+@Slf4j
 public class RedissonAutoConfiguration {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(RedissonAutoConfiguration.class);
 
     @Bean
     @ConditionalOnMissingBean
     @Order(value = 2)
     public RedissonLock redissonLock(RedissonManager redissonManager) {
         RedissonLock redissonLock = new RedissonLock(redissonManager);
-        LOGGER.info("[RedissonLock]组装完毕");
+        log.info("[RedissonLock] 组装完毕");
         return redissonLock;
     }
 
@@ -41,8 +41,8 @@ public class RedissonAutoConfiguration {
     public RedissonManager redissonManager(RedissonProperties redissonProperties) {
         RedissonManager redissonManager =
                 new RedissonManager(redissonProperties);
-        LOGGER.info("[RedissonManager]组装完毕,当前连接方式:" + redissonProperties.getType() +
-                ",连接地址:" + redissonProperties.getAddress());
+        log.info("[RedissonManager] 组装完毕, 当前连接方式:" + redissonProperties.getType() +
+                ", 连接地址:" + redissonProperties.getAddress());
         return redissonManager;
     }
 }

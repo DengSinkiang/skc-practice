@@ -99,7 +99,7 @@ public class DistributedLockByCurator implements InitializingBean {
                 String oldPath = event.getData().getPath();
                 log.info("上一个节点 " + oldPath + " 已经被断开");
                 if (oldPath.contains(path)) {
-                    //释放计数器，让当前的请求获取锁
+                    // 释放计数器，让当前的请求获取锁
                     countDownLatch.countDown();
                 }
             }

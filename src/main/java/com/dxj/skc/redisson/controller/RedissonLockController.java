@@ -20,7 +20,7 @@ public class RedissonLockController {
     /**
      * 模拟这个是商品库存
      */
-    public static volatile Integer TOTAL = 10;
+    public static int TOTAL = 10;
 
     public RedissonLockController(RedissonLock redissonLock) {
         this.redissonLock = redissonLock;

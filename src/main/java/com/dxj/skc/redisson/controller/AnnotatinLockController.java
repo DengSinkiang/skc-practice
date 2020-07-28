@@ -21,13 +21,13 @@ public class AnnotatinLockController {
     /**
      * 模拟这个是商品库存
      */
-    public static volatile Integer TOTAL = 10;
+    public static int TOTAL = 10;
 
     public AnnotatinLockController(RedissonLock redissonLock) {
         this.redissonLock = redissonLock;
     }
 
-    @GetMapping("annotatin-lock-decrease-stock")
+    @GetMapping("annotation-lock-decrease-stock")
     @DistributedLock(value = "goods", leaseTime = 5)
     public String lockDecreaseStock() {
         if (TOTAL > 0) {

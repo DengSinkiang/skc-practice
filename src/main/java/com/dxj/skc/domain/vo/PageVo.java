@@ -17,7 +17,7 @@ public class PageVo implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "页号")
-    private int pageNumber;
+    private int pageIndex;
 
     @ApiModelProperty(value = "页面大小")
     private int pageSize;
