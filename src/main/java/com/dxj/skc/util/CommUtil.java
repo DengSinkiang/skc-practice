@@ -10,8 +10,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author
- * @date
+ * @Description:
+ * @Author: Sinkiang
+ * @Date: 2020/7/1 9:12
+ * @CopyRight: 2020 sk-admin all rights reserved.
  */
 @Slf4j
 public class CommUtil {

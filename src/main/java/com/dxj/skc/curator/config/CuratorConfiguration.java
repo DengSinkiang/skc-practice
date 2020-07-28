@@ -1,4 +1,4 @@
-package com.dxj.skc.config;
+package com.dxj.skc.curator.config;
 
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
