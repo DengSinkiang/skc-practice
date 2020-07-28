@@ -16,14 +16,13 @@ public class ResultUtil<T> {
 
     public ResultUtil() {
         result = new Result<>();
-        result.setSuccess(true);
         result.setMessage("success");
         result.setCode(200);
         result.setTimestamp(LocalDateTime.now());
     }
 
     public Result<T> setData(T t) {
-        result.setResult(t);
+        result.setData(t);
         result.setCode(200);
         result.setTimestamp(LocalDateTime.now());
 
@@ -31,7 +30,6 @@ public class ResultUtil<T> {
     }
 
     public Result<T> setSuccessMsg(String msg) {
-        result.setSuccess(true);
         result.setMessage(msg);
         result.setCode(200);
         result.setTimestamp(LocalDateTime.now());
@@ -40,7 +38,7 @@ public class ResultUtil<T> {
     }
 
     public Result<T> setData(T t, String msg) {
-        result.setResult(t);
+        result.setData(t);
         result.setCode(200);
         result.setMessage(msg);
         result.setTimestamp(LocalDateTime.now());
@@ -49,7 +47,6 @@ public class ResultUtil<T> {
     }
 
     public Result<T> setErrorMsg(String msg) {
-        result.setSuccess(false);
         result.setMessage(msg);
         result.setCode(500);
         result.setTimestamp(LocalDateTime.now());
@@ -58,7 +55,6 @@ public class ResultUtil<T> {
     }
 
     public Result<T> setErrorMsg(int code, String msg) {
-        result.setSuccess(false);
         result.setMessage(msg);
         result.setCode(code);
         result.setTimestamp(LocalDateTime.now());

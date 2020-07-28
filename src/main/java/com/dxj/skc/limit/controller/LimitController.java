@@ -1,6 +1,8 @@
 package com.dxj.skc.limit.controller;
 
+import com.dxj.skc.domain.vo.Result;
 import com.dxj.skc.limit.annotation.Limit;
+import com.dxj.skc.util.ResultUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,7 +29,8 @@ public class LimitController {
     @ApiOperation("测试")
     @GetMapping("/test")
     @Limit(key = "test", period = 60, count = 10, name = "testLimit", prefix = "limit")
-    public int test() {
-        return ATOMIC_INTEGER.incrementAndGet();
+    public Result<Integer> test() {
+
+        return new ResultUtil<Integer>().setData(ATOMIC_INTEGER.incrementAndGet());
     }
 }
