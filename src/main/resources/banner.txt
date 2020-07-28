@@ -9,6 +9,7 @@ ${AnsiColor.BRIGHT_RED}
                         |_|                 |___/
 
 ${AnsiColor.BRIGHT_MAGENTA}
-Skc Version: 2.0.0
+Application Name: ${application.title}
+Application Version: ${application.version}
 Spring Boot Version: ${spring-boot.version}
 ${AnsiColor.BLACK}

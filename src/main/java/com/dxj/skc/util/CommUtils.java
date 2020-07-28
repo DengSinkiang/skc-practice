@@ -78,5 +78,5 @@ public class CommUtils {
         }
         return result;
     }
-    
+
 }
