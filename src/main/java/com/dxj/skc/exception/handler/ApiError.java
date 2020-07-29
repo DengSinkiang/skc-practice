@@ -1,6 +1,5 @@
 package com.dxj.skc.exception.handler;
 
-import com.dxj.skc.domain.vo.Result;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.springframework.http.HttpStatus;

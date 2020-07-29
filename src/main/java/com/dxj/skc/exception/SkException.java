@@ -12,7 +12,7 @@ import org.springframework.http.HttpStatus;
 @Getter
 public class SkException extends RuntimeException {
 
-    private Integer status = 400;
+    private Integer status = 500;
 
     public SkException(String msg) {
         super(msg);

@@ -58,5 +58,5 @@ public abstract class BaseEntity implements Serializable {
     private LocalDateTime updateTime;
 
     @ApiModelProperty(value = "删除标志 默认 0")
-    private Integer delFlag = CommonEnum.STATUS_NORMAL.getStatus();
+    private Integer delFlag = CommonEnum.STATUS_NORMAL.getKey();
 }

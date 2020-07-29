@@ -1,10 +1,9 @@
 package com.dxj.skc.controller;
 
 import com.dxj.skc.domain.vo.PageVo;
-import com.dxj.skc.domain.vo.Result;
 import com.dxj.skc.service.BaseService;
 import com.dxj.skc.util.PageUtil;
-import com.dxj.skc.util.ResultUtil;
+import com.dxj.skc.util.ResultUtils;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -30,57 +29,57 @@ public abstract class BaseController<E, ID extends Serializable> {
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET)
     @ResponseBody
     @ApiOperation(value = "通过 id 获取")
-    public Result<E> getById(@PathVariable("id") ID id) {
+    public ResultUtils<E> getById(@PathVariable("id") ID id) {
 
         E entity = getService().getById(id);
-        return new ResultUtil<E>().setData(entity);
+        return ResultUtils.success(entity);
     }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET)
     @ResponseBody
     @ApiOperation(value = "获取全部数据")
-    public Result<List<E>> getAll() {
+    public ResultUtils<List<E>> getAll() {
 
         List<E> list = getService().getAll();
-        return new ResultUtil<List<E>>().setData(list);
+        return ResultUtils.success(list);
     }
 
     @RequestMapping(value = "/getByPage", method = RequestMethod.GET)
     @ResponseBody
     @ApiOperation(value = "分页获取")
-    public Result<Page<E>> getByPage(@ModelAttribute PageVo page) {
+    public ResultUtils<Page<E>> getByPage(@ModelAttribute PageVo page) {
 
         Page<E> data = getService().findAll(PageUtil.initPage(page));
-        return new ResultUtil<Page<E>>().setData(data);
+        return ResultUtils.success(data);
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
     @ApiOperation(value = "保存数据")
-    public Result<E> save(@ModelAttribute E entity) {
+    public ResultUtils<E> save(@ModelAttribute E entity) {
 
         E e = getService().save(entity);
-        return new ResultUtil<E>().setData(e);
+        return ResultUtils.success(e);
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
     @ResponseBody
     @ApiOperation(value = "更新数据")
-    public Result<E> update(@ModelAttribute E entity) {
+    public ResultUtils<E> update(@ModelAttribute E entity) {
 
         E e = getService().update(entity);
-        return new ResultUtil<E>().setData(e);
+        return ResultUtils.success(e);
     }
 
     @RequestMapping(value = "/delByIds/{ids}", method = RequestMethod.DELETE)
     @ResponseBody
     @ApiOperation(value = "批量通过 id 删除")
-    public Result<E> delAllByIds(@PathVariable("ids") ID[] ids) {
+    public ResultUtils<E> delAllByIds(@PathVariable("ids") ID[] ids) {
 
         for (ID id : ids) {
             getService().delete(id);
         }
-        return new ResultUtil<E>().setSuccessMsg("批量通过 id 删除数据成功");
+        return ResultUtils.success(null, "批量通过 id 删除数据成功");
     }
 }
 
