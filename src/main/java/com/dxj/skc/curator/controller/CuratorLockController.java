@@ -26,7 +26,7 @@ public class CuratorLockController {
         boolean flag;
         distributedLockByCurator.acquireDistributedLock(PATH);
         try {
-            Thread.sleep(10000);
+            Thread.sleep(20000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -39,7 +39,7 @@ public class CuratorLockController {
         boolean flag;
         distributedLockByCurator.acquireDistributedLock(PATH);
         try {
-            Thread.sleep(5000);
+            Thread.sleep(15000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
