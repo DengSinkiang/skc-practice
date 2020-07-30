@@ -1,5 +1,6 @@
 package com.dxj.skc.curator.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.RetryNTimes;
@@ -14,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
  * @CopyRight: 2020 sk-admin all rights reserved.
  */
 @Configuration
+@Slf4j
 public class CuratorConfiguration {
 
     @Value("${curator.retryCount}")
@@ -33,6 +35,7 @@ public class CuratorConfiguration {
 
     @Bean(initMethod = "start")
     public CuratorFramework curatorFramework() {
+        log.info("start initMethod...");
         return CuratorFrameworkFactory.newClient(
                 connectString,
                 sessionTimeoutMs,

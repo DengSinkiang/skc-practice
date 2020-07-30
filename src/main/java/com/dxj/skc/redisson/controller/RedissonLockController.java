@@ -1,6 +1,7 @@
 package com.dxj.skc.redisson.controller;
 
 import com.dxj.skc.redisson.RedissonLock;
+import com.dxj.skc.util.ResultUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,7 +28,7 @@ public class RedissonLockController {
     }
 
     @GetMapping("lock-decrease-stock")
-    public String lockDecreaseStock() throws InterruptedException {
+    public ResultUtils<String> lockDecreaseStock() throws InterruptedException {
         redissonLock.lock("lock", 10L);
         if (TOTAL > 0) {
             TOTAL--;
@@ -38,11 +39,11 @@ public class RedissonLockController {
         if (redissonLock.isHeldByCurrentThread("lock")) {
             redissonLock.unlock("lock");
         }
-        return "=================================";
+        return ResultUtils.success("减完库存后,当前库存为:" + TOTAL);
     }
 
     @GetMapping("trylock-decrease-stock")
-    public String trylockDecreaseStock() throws InterruptedException {
+    public ResultUtils<String> trylockDecreaseStock() throws InterruptedException {
         if (redissonLock.tryLock("trylock", 5L, 200L)) {
             if (TOTAL > 0) {
                 TOTAL--;
@@ -53,7 +54,7 @@ public class RedissonLockController {
         } else {
             log.info("[ExecutorRedisson] 获取锁失败");
         }
-        return "===================================";
+        return ResultUtils.success("减完库存后,当前库存为:" + TOTAL);
     }
 
 
