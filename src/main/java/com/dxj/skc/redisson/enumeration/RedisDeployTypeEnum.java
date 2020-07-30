@@ -10,7 +10,7 @@ package com.dxj.skc.redisson.enumeration;
  * @Date: 2020/7/27 10:35
  * @CopyRight: 2020 sk-admin all rights reserved.
  */
-public enum RedisConnectionTypeEnum {
+public enum RedisDeployTypeEnum {
 
     /**
      * 单节点部署方式
@@ -23,7 +23,7 @@ public enum RedisConnectionTypeEnum {
     private final String connectionType;
     private final String connectionDesc;
 
-    RedisConnectionTypeEnum(String connectionType, String connectionDesc) {
+    RedisDeployTypeEnum(String connectionType, String connectionDesc) {
         this.connectionType = connectionType;
         this.connectionDesc = connectionDesc;
     }

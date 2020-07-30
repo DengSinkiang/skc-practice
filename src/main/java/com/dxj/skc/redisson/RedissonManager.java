@@ -1,6 +1,6 @@
 package com.dxj.skc.redisson;
 
-import com.dxj.skc.redisson.enumeration.RedisConnectionTypeEnum;
+import com.dxj.skc.redisson.enumeration.RedisDeployTypeEnum;
 import com.dxj.skc.redisson.entity.RedissonProperties;
 import com.dxj.skc.redisson.strategy.RedissonConfigService;
 import com.dxj.skc.redisson.strategy.impl.ClusterConfigImpl;
@@ -79,13 +79,13 @@ public class RedissonManager {
             String connectionType = redissonProperties.getType();
             // 声明配置上下文
             RedissonConfigService redissonConfigService;
-            if (connectionType.equals(RedisConnectionTypeEnum.STANDALONE.getConnectionType())) {
+            if (connectionType.equals(RedisDeployTypeEnum.STANDALONE.getConnectionType())) {
                 redissonConfigService = new StandaloneConfigImpl();
-            } else if (connectionType.equals(RedisConnectionTypeEnum.SENTINEL.getConnectionType())) {
+            } else if (connectionType.equals(RedisDeployTypeEnum.SENTINEL.getConnectionType())) {
                 redissonConfigService = new SentineConfigImpl();
-            } else if (connectionType.equals(RedisConnectionTypeEnum.CLUSTER.getConnectionType())) {
+            } else if (connectionType.equals(RedisDeployTypeEnum.CLUSTER.getConnectionType())) {
                 redissonConfigService = new ClusterConfigImpl();
-            } else if (connectionType.equals(RedisConnectionTypeEnum.MASTERSLAVE.getConnectionType())) {
+            } else if (connectionType.equals(RedisDeployTypeEnum.MASTERSLAVE.getConnectionType())) {
                 redissonConfigService = new MasterslaveConfigImpl();
             } else {
                 throw new IllegalArgumentException("创建Redisson连接Config失败！当前连接方式:" + connectionType);
