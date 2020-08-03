@@ -25,7 +25,7 @@
         <log4jdbc.version>1.16</log4jdbc.version>
         <swagger.version>2.9.2</swagger.version>
         <zookeeper.version>3.4.10</zookeeper.version>
-        <guava.version>20.0</guava.version>
+        <guava.version>[24.1.1,)</guava.version>
     </properties>
 
     <dependencies>
