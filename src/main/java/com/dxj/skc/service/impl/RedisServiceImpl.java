@@ -134,9 +134,8 @@ public class RedisServiceImpl implements RedisService {
 
     @Override
     public Long sAdd(String key, long time, Object... values) {
-        Long count = redisTemplate.opsForSet().add(key, values);
         expire(key, time);
-        return count;
+        return redisTemplate.opsForSet().add(key, values);
     }
 
     @Override
@@ -176,9 +175,8 @@ public class RedisServiceImpl implements RedisService {
 
     @Override
     public Long lPush(String key, Object value, long time) {
-        Long index = redisTemplate.opsForList().rightPush(key, value);
         expire(key, time);
-        return index;
+        return redisTemplate.opsForList().rightPush(key, value);
     }
 
     @Override
@@ -188,9 +186,8 @@ public class RedisServiceImpl implements RedisService {
 
     @Override
     public Long lPushAll(String key, Long time, Object... values) {
-        Long count = redisTemplate.opsForList().rightPushAll(key, values);
         expire(key, time);
-        return count;
+        return redisTemplate.opsForList().rightPushAll(key, values);
     }
 
     @Override

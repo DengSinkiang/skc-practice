@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @Description:
  * @Author: dengxj29231
  * @Date: 2020/7/28 16:52
- * @CopyRight: 2020 hundsun all rights reserved.
+ * @CopyRight: 2020 sk-admin all rights reserved.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
