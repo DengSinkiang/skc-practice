@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.dxj.skc.domain.entity.User;
 import com.dxj.skc.domain.vo.PageVo;
+import com.dxj.skc.exception.SkException;
 import com.dxj.skc.service.UserService;
+import com.google.common.collect.Lists;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -13,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -41,7 +44,9 @@ public class SkcTest {
     }
     @Test
     public void testSaveUser() {
-        for (int i = 0; i < 50; i++) {
+        long time1 = System.currentTimeMillis();
+        List<User> list = new ArrayList<>();
+        for (int i = 0; i < 10000; i++) {
             User user = new User();
             user.setAge(25);
             user.setPassword("123456");
@@ -51,8 +56,19 @@ public class SkcTest {
             user.setDelFlag(0);
             user.setUpdateBy("dxj");
             user.setUpdateTime(LocalDateTime.now());
-            userService.save(user);
+            list.add(user);
         }
+        List<List<User>> subList = Lists.partition(list, 1000);
+        boolean saveFlag;
+        for (List<User> sub : subList) {
+            saveFlag = userService.saveBatch(sub);
+            if (!saveFlag) {
+                throw new SkException("插入失败！");
+            }
+        }
+        long time2 = System.currentTimeMillis();
+        long time = time2 - time1;
+        System.out.println("耗时：" + time);
 
     }
     @Test
