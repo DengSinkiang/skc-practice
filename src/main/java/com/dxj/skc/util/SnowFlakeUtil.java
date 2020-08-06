@@ -58,7 +58,7 @@ public class SnowFlakeUtil {
 
         lastTimestamp = timestamp;
         // 时间起始标记点，作为基准，一般取系统的最近时间
-        long epoch = 1585301167730L;
+        long epoch = 1288834974657L;
 
         // 22
         long timestampLeftShift = sequenceBits + workerIdBits;
@@ -88,13 +88,6 @@ public class SnowFlakeUtil {
     private static long timeGen() {
         return System.currentTimeMillis();
     }
-
-    public static void main(String[] args) {
-        SnowFlakeUtil snowFlakeUtil;
-        for (int i = 0; i < 100; i++) {
-            snowFlakeUtil = SnowFlakeUtil.getFlowIdInstance();
-            System.out.println(snowFlakeUtil.nextId());
-        }
-    }
+    
 }
 
