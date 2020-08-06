@@ -5,8 +5,6 @@ import com.dxj.skc.redisson.RedissonManager;
 import com.dxj.skc.redisson.entity.RedissonProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.Redisson;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -41,8 +39,8 @@ public class RedissonAutoConfiguration {
     public RedissonManager redissonManager(RedissonProperties redissonProperties) {
         RedissonManager redissonManager =
                 new RedissonManager(redissonProperties);
-        log.info("[RedissonManager] 组装完毕, 当前连接方式:" + redissonProperties.getType() +
-                ", 连接地址:" + redissonProperties.getAddress());
+        log.info("[RedissonManager] 组装完毕,当前连接方式:" + redissonProperties.getType() +
+                ",连接地址:" + redissonProperties.getAddress());
         return redissonManager;
     }
 }

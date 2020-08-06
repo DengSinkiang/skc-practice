@@ -2,6 +2,7 @@ package com.dxj.skc.util;
 
 import com.dxj.skc.enumeration.CommonEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
  * @Date: 2020/3/27 15:58
  * @CopyRight: 2020 sk-admin all rights reserved.
  */
+@Data
 public class ResultUtils<T> {
 
     /**
@@ -48,7 +50,7 @@ public class ResultUtils<T> {
      * @param data 获取的数据
      */
     public static <T> ResultUtils<T> success(T data) {
-        return new ResultUtils<T>(CommonEnum.SUCCESS.getKey(), CommonEnum.SUCCESS.getValue(), LocalDateTime.now(), data);
+        return new ResultUtils<>(CommonEnum.SUCCESS.getKey(), CommonEnum.SUCCESS.getValue(), LocalDateTime.now(), data);
     }
 
     /**
@@ -58,7 +60,7 @@ public class ResultUtils<T> {
      * @param  message 提示信息
      */
     public static <T> ResultUtils<T> success(T data, String message) {
-        return new ResultUtils<T>(CommonEnum.SUCCESS.getKey(), message, LocalDateTime.now(), data);
+        return new ResultUtils<>(CommonEnum.SUCCESS.getKey(), message, LocalDateTime.now(), data);
     }
 
     /**
@@ -67,7 +69,7 @@ public class ResultUtils<T> {
      * @param message 错误信息
      */
     public static <T> ResultUtils<T> failed(int errorCode, String message) {
-        return new ResultUtils<T>(errorCode, message, LocalDateTime.now(), null);
+        return new ResultUtils<>(errorCode, message, LocalDateTime.now(), null);
     }
 
     /**
@@ -75,7 +77,7 @@ public class ResultUtils<T> {
      * @param message 提示信息
      */
     public static <T> ResultUtils<T> failed(String message) {
-        return new ResultUtils<T>(CommonEnum.FAILED.getKey(), message, LocalDateTime.now(), null);
+        return new ResultUtils<>(CommonEnum.FAILED.getKey(), message, LocalDateTime.now(), null);
     }
 
     /**
@@ -83,37 +85,5 @@ public class ResultUtils<T> {
      */
     public static <T> ResultUtils<T> failed() {
         return failed(CommonEnum.FAILED.getKey(), CommonEnum.FAILED.getValue());
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
     }
 }

@@ -8,8 +8,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author jacky
- * @date
+ * @Description:
+ * @Author: Sinkiang
+ * @Date: 2020/3/27 15:58
+ * @CopyRight: 2020 sk-admin all rights reserved.
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

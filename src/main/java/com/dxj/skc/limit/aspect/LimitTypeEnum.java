@@ -1,9 +1,10 @@
 package com.dxj.skc.limit.aspect;
 
 /**
- * 限流枚举
- * @author /
- * @date /
+ * @Description: 限流枚举
+ * @Author: Sinkiang
+ * @Date: 2020/3/27 15:58
+ * @CopyRight: 2020 sk-admin all rights reserved.
  */
 public enum LimitTypeEnum {
     // 默认

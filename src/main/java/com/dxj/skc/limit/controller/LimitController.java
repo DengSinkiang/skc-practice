@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @author /
- * @date
- * 接口限流测试类
+ * @Description: 接口限流测试类
+ * @Author: Sinkiang
+ * @Date: 2020/3/27 15:58
+ * @CopyRight: 2020 sk-admin all rights reserved.
  */
 @RestController
 @RequestMapping("/limit")

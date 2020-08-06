@@ -22,7 +22,7 @@ public abstract class BaseController<E, ID extends Serializable> {
     /**
      * 获取service
      *
-     * @return
+     * @return /
      */
     public abstract BaseService<E, ID> getService();
 

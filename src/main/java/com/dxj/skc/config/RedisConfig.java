@@ -23,6 +23,7 @@ import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 
 import java.nio.charset.Charset;
@@ -107,22 +108,22 @@ public class RedisConfig extends CachingConfigurerSupport {
         log.info("初始化 -> [{}]", "Redis CacheErrorHandler");
         return new CacheErrorHandler() {
             @Override
-            public void handleCacheGetError(RuntimeException e, Cache cache, Object key) {
+            public void handleCacheGetError(@Nullable RuntimeException e, @Nullable Cache cache, @Nullable Object key) {
                 log.error("Redis occur handleCacheGetError：key -> [{}]", key, e);
             }
 
             @Override
-            public void handleCachePutError(RuntimeException e, Cache cache, Object key, Object value) {
+            public void handleCachePutError(@Nullable RuntimeException e, @Nullable Cache cache, @Nullable Object key, @Nullable Object value) {
                 log.error("Redis occur handleCachePutError：key -> [{}]；value -> [{}]", key, value, e);
             }
 
             @Override
-            public void handleCacheEvictError(RuntimeException e, Cache cache, Object key) {
+            public void handleCacheEvictError(@Nullable RuntimeException e, @Nullable Cache cache, @Nullable Object key) {
                 log.error("Redis occur handleCacheEvictError：key -> [{}]", key, e);
             }
 
             @Override
-            public void handleCacheClearError(RuntimeException e, Cache cache) {
+            public void handleCacheClearError(@Nullable RuntimeException e, @Nullable Cache cache) {
                 log.error("Redis occur handleCacheClearError：", e);
             }
         };
