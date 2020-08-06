@@ -7,9 +7,9 @@ import java.io.IOException;
 
 /**
  * @Description:
- * @Author: dengxj29231
+ * @Author: Sinkiang
  * @Date: 2020/7/30 9:16
- * @CopyRight: 2020 hundsun all rights reserved.
+ * @CopyRight: 2020 sk-admin all rights reserved.
  */
 public class Recv {
     private final static String QUEUE_NAME = "topic_exchange_queue_1";

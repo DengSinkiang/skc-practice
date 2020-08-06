@@ -1,16 +1,16 @@
 package com.dxj.skc.rabbitmq.topic;
 
-/**
- * @Description: 生产者，模拟为商品服务
- * @Author: dengxj29231
- * @Date: 2020/7/30 9:16
- * @CopyRight: 2020 hundsun all rights reserved.
- */
-
 import com.dxj.skc.rabbitmq.util.ConnectionUtil;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 
+/**
+ *
+ * @Description: 生产者，模拟为商品服务
+ * @Author: Sinkiang
+ * @Date: 2020/7/30 9:16
+ * @CopyRight: 2020 sk-admin all rights reserved.
+ */
 public class Send {
     private final static String EXCHANGE_NAME = "topic_exchange_test";
 

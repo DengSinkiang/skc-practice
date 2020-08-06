@@ -1,7 +1,6 @@
 package com.dxj.skc.curator.controller;
 import com.dxj.skc.curator.util.DistributedLockByCurator;
 import com.dxj.skc.util.ResultUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,10 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/hello")
 public class CuratorLockController {
 
-    @Autowired
-    private DistributedLockByCurator distributedLockByCurator;
+    private final DistributedLockByCurator distributedLockByCurator;
 
     private final static String PATH = "test";
+
+    public CuratorLockController(DistributedLockByCurator distributedLockByCurator) {
+        this.distributedLockByCurator = distributedLockByCurator;
+    }
 
     @GetMapping("/lock1")
     public ResultUtils<Boolean> getLock1() {

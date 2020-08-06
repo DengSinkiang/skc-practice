@@ -2,9 +2,9 @@ package com.dxj.skc.rabbitmq.direct;
 
 /**
  * @Description: 消费者1
- * @Author: dengxj29231
+ * @Author: Sinkiang
  * @Date: 2020/7/30 8:53
- * @CopyRight: 2020 hundsun all rights reserved.
+ * @CopyRight: 2020 sk-admin all rights reserved.
  */
 
 import com.dxj.skc.rabbitmq.util.ConnectionUtil;

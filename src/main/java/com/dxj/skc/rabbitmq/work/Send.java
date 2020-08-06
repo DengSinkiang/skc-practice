@@ -6,9 +6,9 @@ import com.rabbitmq.client.Connection;
 
 /**
  * @Description:
- * @Author: dengxj29231
+ * @Author: Sinkiang
  * @Date: 2020/7/30 9:19
- * @CopyRight: 2020 hundsun all rights reserved.
+ * @CopyRight: 2020 sk-admin all rights reserved.
  */
 public class Send {
     private final static String QUEUE_NAME = "test_work_queue";
@@ -21,9 +21,10 @@ public class Send {
         // 声明队列
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
         // 循环发布任务
+        String message;
         for (int i = 0; i < 50; i++) {
             // 消息内容
-            String message = "task .. " + i;
+            message = "task .. " + i;
             channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
             System.out.println(" [x] Sent '" + message + "'");
 

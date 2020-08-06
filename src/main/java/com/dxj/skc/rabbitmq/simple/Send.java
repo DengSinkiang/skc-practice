@@ -6,9 +6,9 @@ import com.rabbitmq.client.Connection;
 
 /**
  * @Description:
- * @Author: dengxj29231
+ * @Author: Sinkiang
  * @Date: 2020/7/30 9:13
- * @CopyRight: 2020 hundsun all rights reserved.
+ * @CopyRight: 2020 sk-admin all rights reserved.
  */
 public class Send {
 

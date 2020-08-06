@@ -5,9 +5,9 @@ import com.rabbitmq.client.ConnectionFactory;
 
 /**
  * @Description:
- * @Author: dengxj29231
+ * @Author: Sinkiang
  * @Date: 2020/7/30 8:50
- * @CopyRight: 2020 hundsun all rights reserved.
+ * @CopyRight: 2020 sk-admin all rights reserved.
  */
 public class ConnectionUtil {
     /**

@@ -7,9 +7,9 @@ import java.io.IOException;
 
 /**
  * @Description: 消费者2
- * @Author: dengxj29231
+ * @Author: Sinkiang
  * @Date: 2020/7/30 9:09
- * @CopyRight: 2020 hundsun all rights reserved.
+ * @CopyRight: 2020 sk-admin all rights reserved.
  */
 public class Recv2 {
     private final static String QUEUE_NAME = "direct_exchange_queue_2";
