@@ -1,8 +1,5 @@
 package com.dxj.skc.util;
 
-import com.dxj.skc.exception.SkException;
-import org.hibernate.exception.ConstraintViolationException;
-
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
@@ -25,15 +22,4 @@ public class ThrowableUtil {
         }
     }
 
-    public static void throwForeignKeyException(Throwable e, String msg){
-        Throwable t = e.getCause();
-        while ((t != null) && !(t instanceof ConstraintViolationException)) {
-            t = t.getCause();
-        }
-        if (t != null) {
-            throw new SkException(msg);
-        }
-        assert false;
-        throw new SkException("删除失败：" + t.getMessage());
-    }
 }
