@@ -5,9 +5,9 @@ import com.dxj.skc.domain.entity.User;
 
 /**
  * @Description:
- * @Author: dengxj29231
+ * @Author: Sinkiang
  * @Date: 2020/8/6 17:24
- * @CopyRight: 2020 hundsun all rights reserved.
+ * @CopyRight: 2020 sk-admin all rights reserved.
  */
 public interface UserService extends IService<User> {
 

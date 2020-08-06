@@ -6,9 +6,9 @@ import org.springframework.stereotype.Repository;
 
 /**
  * @Description:
- * @Author: dengxj29231
+ * @Author: Sinkiang
  * @Date: 2020/8/6 16:22
- * @CopyRight: 2020 hundsun all rights reserved.
+ * @CopyRight: 2020 sk-admin all rights reserved.
  */
 @Repository
 public interface UserMapper extends BaseMapper<User> {
