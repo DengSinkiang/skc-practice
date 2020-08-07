@@ -1,5 +1,5 @@
-package com.dxj.skc.curator.controller;
-import com.dxj.skc.curator.util.DistributedLockByCurator;
+package com.dxj.skc.lock.curator.controller;
+import com.dxj.skc.lock.curator.util.DistributedLockByCurator;
 import com.dxj.skc.util.ResultUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

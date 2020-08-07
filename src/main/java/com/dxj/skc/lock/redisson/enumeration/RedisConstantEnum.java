@@ -1,4 +1,4 @@
-package com.dxj.skc.redisson.enumeration;
+package com.dxj.skc.lock.redisson.enumeration;
 
 /**
  * @Description: 全局常量枚举 用来拼接完整的 URL

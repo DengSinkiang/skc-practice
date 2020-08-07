@@ -1,7 +1,7 @@
-package com.dxj.skc.redisson.controller;
+package com.dxj.skc.lock.redisson.controller;
 
-import com.dxj.skc.redisson.RedissonLock;
-import com.dxj.skc.redisson.annotation.DistributedLock;
+import com.dxj.skc.lock.redisson.RedissonLock;
+import com.dxj.skc.lock.redisson.annotation.DistributedLock;
 import com.dxj.skc.util.ResultUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

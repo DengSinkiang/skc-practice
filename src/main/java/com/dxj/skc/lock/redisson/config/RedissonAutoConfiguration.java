@@ -1,8 +1,8 @@
-package com.dxj.skc.redisson.config;
+package com.dxj.skc.lock.redisson.config;
 
-import com.dxj.skc.redisson.RedissonLock;
-import com.dxj.skc.redisson.RedissonManager;
-import com.dxj.skc.redisson.entity.RedissonProperties;
+import com.dxj.skc.lock.redisson.RedissonLock;
+import com.dxj.skc.lock.redisson.RedissonManager;
+import com.dxj.skc.lock.redisson.entity.RedissonProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.Redisson;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;

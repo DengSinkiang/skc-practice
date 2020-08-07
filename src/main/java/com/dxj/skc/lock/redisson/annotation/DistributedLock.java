@@ -1,4 +1,4 @@
-package com.dxj.skc.redisson.annotation;
+package com.dxj.skc.lock.redisson.annotation;
 
 import java.lang.annotation.*;
 

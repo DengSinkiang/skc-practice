@@ -1,4 +1,4 @@
-package com.dxj.skc.redisson.entity;
+package com.dxj.skc.lock.redisson.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

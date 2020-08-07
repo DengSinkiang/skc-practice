@@ -1,4 +1,4 @@
-package com.dxj.skc.redisson.enumeration;
+package com.dxj.skc.lock.redisson.enumeration;
 
 /**
  * @Description: Redis连接方式包含:

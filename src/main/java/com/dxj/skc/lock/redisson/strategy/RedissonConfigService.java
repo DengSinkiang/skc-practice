@@ -1,6 +1,6 @@
-package com.dxj.skc.redisson.strategy;
+package com.dxj.skc.lock.redisson.strategy;
 
-import com.dxj.skc.redisson.entity.RedissonProperties;
+import com.dxj.skc.lock.redisson.entity.RedissonProperties;
 import org.redisson.config.Config;
 
 /**

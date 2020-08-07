@@ -1,12 +1,12 @@
-package com.dxj.skc.redisson;
+package com.dxj.skc.lock.redisson;
 
-import com.dxj.skc.redisson.enumeration.RedisDeployTypeEnum;
-import com.dxj.skc.redisson.entity.RedissonProperties;
-import com.dxj.skc.redisson.strategy.RedissonConfigService;
-import com.dxj.skc.redisson.strategy.impl.ClusterConfigImpl;
-import com.dxj.skc.redisson.strategy.impl.MasterslaveConfigImpl;
-import com.dxj.skc.redisson.strategy.impl.SentineConfigImpl;
-import com.dxj.skc.redisson.strategy.impl.StandaloneConfigImpl;
+import com.dxj.skc.lock.redisson.enumeration.RedisDeployTypeEnum;
+import com.dxj.skc.lock.redisson.entity.RedissonProperties;
+import com.dxj.skc.lock.redisson.strategy.RedissonConfigService;
+import com.dxj.skc.lock.redisson.strategy.impl.ClusterConfigImpl;
+import com.dxj.skc.lock.redisson.strategy.impl.MasterslaveConfigImpl;
+import com.dxj.skc.lock.redisson.strategy.impl.SentineConfigImpl;
+import com.dxj.skc.lock.redisson.strategy.impl.StandaloneConfigImpl;
 import com.google.common.base.Preconditions;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.Redisson;

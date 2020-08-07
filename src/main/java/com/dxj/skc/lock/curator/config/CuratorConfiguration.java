@@ -1,4 +1,4 @@
-package com.dxj.skc.curator.config;
+package com.dxj.skc.lock.curator.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.framework.CuratorFramework;

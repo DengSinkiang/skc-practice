@@ -1,7 +1,7 @@
-package com.dxj.skc.redisson.annotation;
+package com.dxj.skc.lock.redisson.annotation;
 
 import com.dxj.skc.exception.SkException;
-import com.dxj.skc.redisson.RedissonLock;
+import com.dxj.skc.lock.redisson.RedissonLock;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

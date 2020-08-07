@@ -1,9 +1,9 @@
-package com.dxj.skc.redisson.strategy.impl;
+package com.dxj.skc.lock.redisson.strategy.impl;
 
 
-import com.dxj.skc.redisson.enumeration.RedisConstantEnum;
-import com.dxj.skc.redisson.entity.RedissonProperties;
-import com.dxj.skc.redisson.strategy.RedissonConfigService;
+import com.dxj.skc.lock.redisson.enumeration.RedisConstantEnum;
+import com.dxj.skc.lock.redisson.entity.RedissonProperties;
+import com.dxj.skc.lock.redisson.strategy.RedissonConfigService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.redisson.config.Config;
