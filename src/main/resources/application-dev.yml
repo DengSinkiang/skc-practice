@@ -39,6 +39,7 @@ spring:
       web-stat-filter:
         url-pattern: /*
         exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+        
   # 配置 Jpa
   jpa:
     hibernate:
@@ -51,6 +52,7 @@ spring:
     password: guest
     addresses: 127.0.0.1:5672
 
+  # 配置 es
   data:
     elasticsearch:
       cluster-name: singwa_imooc
