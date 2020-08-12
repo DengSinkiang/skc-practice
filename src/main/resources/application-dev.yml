@@ -84,3 +84,7 @@ redisson:
       type: standalone
       password:
       database: 0
+
+#设定包下的日志级别
+logging:
+  path: logs

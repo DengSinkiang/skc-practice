@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds" debug="false">
+    <contextName>Skc</contextName>
+    <property name="log.charset" value="utf-8" />
+    <property name="log.pattern" value="%yellow(%contextName-) %red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger{36}) - %cyan(%msg%n)" />
+    <!-- 定义日志的根目录
+        name: 变量的名称,下文可以使“${}”来使用变量;
+        source: 变量定义的值(放在配置文件中) -->
+    <springProperty scope="context" name="logPath" source="logging.path"/>
+
+    <!--输出到控制台-->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+            <charset>${log.charset}</charset>
+        </encoder>
+
+        <!--添加我们自定义的filter-->
+        <!--<filter class="com.dxj.monitor.config.LogFilter" />-->
+    </appender>
+
+    <!-- 获取info级别的日志 -->
+    <appender name="INFO-LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--&lt;!&ndash; 被写入的文件名 &ndash;&gt;-->
+        <!--<file>${logPath}/info.log</file>-->
+        <!-- 指定过滤策略 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <!-- 指定日志输出格式 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+
+        <!-- 指定收集策略：滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 指定生成日志保存地址 -->
+            <fileNamePattern>${logPath}/%d{yyyy-MM-dd}/info/info-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <!--每个文件最多100MB-->
+            <maxFileSize>100MB</maxFileSize>
+            <!--日志文件保留天数-->
+            <maxHistory>15</maxHistory>
+            <!--每个文件最多100MB，保留15天的历史记录，但最多20GB-->
+            <totalSizeCap>20GB</totalSizeCap>
+            <!--重启清理日志文件-->
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="WARN-LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--&lt;!&ndash; 被写入的文件名 &ndash;&gt;-->
+        <!--<file>${logPath}/info.log</file>-->
+        <!-- 指定过滤策略 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <!-- 指定日志输出格式 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+
+        <!-- 指定收集策略：滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 指定生成日志保存地址 -->
+            <fileNamePattern>${logPath}/%d{yyyy-MM-dd}/warn/warn-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <!--每个文件最多100MB-->
+            <maxFileSize>100MB</maxFileSize>
+            <!--日志文件保留天数-->
+            <maxHistory>15</maxHistory>
+            <!--每个文件最多100MB，保留15天的历史记录，但最多20GB-->
+            <totalSizeCap>20GB</totalSizeCap>
+            <!--重启清理日志文件-->
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="ERROR-LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--&lt;!&ndash; 被写入的文件名 &ndash;&gt;-->
+        <!--<file>${logPath}/error.log</file>-->
+        <!-- 指定过滤策略 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <!-- 指定日志输出格式 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+        <!-- 指定收集策略：滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--指定生成日志保存地址 -->
+            <fileNamePattern>${logPath}/%d{yyyy-MM-dd}/error/error-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <!--每个文件最多100MB-->
+            <maxFileSize>100MB</maxFileSize>
+            <!--日志文件保留天数-->
+            <maxHistory>15</maxHistory>
+            <!--每个文件最多100MB，保留15天的历史记录，但最多20GB-->
+            <totalSizeCap>20GB</totalSizeCap>
+            <!--重启清理日志文件-->
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+    </appender>
+
+    <!-- 异步输出 -->
+    <appender name="ASYNC-CONSOLE" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+        <discardingThreshold>0</discardingThreshold>
+        <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+        <queueSize>256</queueSize>
+        <!-- 添加附加的appender,最多只能添加一个 -->
+        <appender-ref ref="CONSOLE"/>
+    </appender>
+    <!-- 异步输出 -->
+    <appender name="ASYNC-INFO" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+        <discardingThreshold>0</discardingThreshold>
+        <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+        <queueSize>256</queueSize>
+        <!-- 添加附加的appender,最多只能添加一个 -->
+        <appender-ref ref="INFO-LOG"/>
+    </appender>
+    <appender name="ASYNC-WARN" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+        <discardingThreshold>0</discardingThreshold>
+        <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+        <queueSize>256</queueSize>
+        <!-- 添加附加的appender,最多只能添加一个 -->
+        <appender-ref ref="WARN-LOG"/>
+    </appender>
+    <appender name="ASYNC-ERROR" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+        <discardingThreshold>0</discardingThreshold>
+        <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+        <queueSize>256</queueSize>
+        <!-- 添加附加的appender,最多只能添加一个 -->
+        <appender-ref ref="ERROR-LOG"/>
+    </appender>
+
+    <!--普通日志输出到控制台-->
+    <root level="info">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="INFO-LOG"/>
+        <appender-ref ref="WARN-LOG" />
+        <appender-ref ref="ERROR-LOG" />
+    </root>
+
+    <!--监控sql日志输出 -->
+    <logger name="jdbc.sqlonly" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE" />
+    </logger>
+
+    <logger name="jdbc.resultset" level="ERROR" additivity="false">
+        <appender-ref ref="CONSOLE" />
+    </logger>
+
+    <!--  如想看到表格数据，将OFF改为INFO  -->
+    <logger name="jdbc.resultsettable" level="OFF" additivity="false">
+        <appender-ref ref="CONSOLE" />
+    </logger>
+
+    <logger name="jdbc.connection" level="OFF" additivity="false">
+        <appender-ref ref="CONSOLE" />
+    </logger>
+
+    <logger name="jdbc.sqltiming" level="OFF" additivity="false">
+        <appender-ref ref="CONSOLE" />
+    </logger>
+
+    <logger name="jdbc.audit" level="OFF" additivity="false">
+        <appender-ref ref="CONSOLE" />
+    </logger>
+</configuration>
