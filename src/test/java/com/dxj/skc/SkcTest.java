@@ -85,6 +85,5 @@ public class SkcTest {
             System.out.println("userId:" + user.getId());
         }
 
-
     }
 }

@@ -34,8 +34,10 @@ import java.util.Map;
 
 
 /**
- * @author Sinkiang
- * @date 2018-11-24
+ * @Description:
+ * @Author: Sinkiang
+ * @Date: 2020/8/6 16:16
+ * @CopyRight: 2020 sk-admin all rights reserved.
  */
 @Slf4j
 @Configuration

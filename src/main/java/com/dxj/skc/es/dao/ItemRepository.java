@@ -6,8 +6,10 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
 import java.util.List;
 
 /**
- * @AUTHOR: sinkiang
- * @DATE: 2019-07-16 22:52
+ * @Description:
+ * @Author: Sinkiang
+ * @Date: 2020/7/28 16:52
+ * @CopyRight: 2020 sk-admin all rights reserved.
  */
 public interface ItemRepository extends ElasticsearchRepository<Item, Long> {
 

@@ -9,8 +9,10 @@ import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
 /**
- * @AUTHOR: sinkiang
- * @DATE: 2019-07-16 22:51
+ * @Description:
+ * @Author: Sinkiang
+ * @Date: 2020/7/28 16:52
+ * @CopyRight: 2020 sk-admin all rights reserved.
  */
 @Document(indexName = "item", type = "docs", shards = 1, replicas = 0)
 @Data
@@ -19,14 +21,29 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 public class Item {
     @Id
     private Long id;
+    /**
+     * 标题
+     */
     @Field(type = FieldType.Text, analyzer = "ik_max_word")
-    private String title; //标题
+    private String title;
+    /**
+     * 分类
+     */
     @Field(type = FieldType.Keyword)
-    private String category;// 分类
+    private String category;
+    /**
+     * 品牌
+     */
     @Field(type = FieldType.Keyword)
-    private String brand; // 品牌
+    private String brand;
+    /**
+     * 价格
+     */
     @Field(type = FieldType.Double)
-    private Double price; // 价格
+    private Double price;
+    /**
+     * 图片地址
+     */
     @Field(type = FieldType.Keyword, index = false)
-    private String images; // 图片地址
+    private String images;
 }
