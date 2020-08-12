@@ -84,3 +84,7 @@ redisson:
       type: standalone
       password:
       database: 0
+
+# 配置日志
+logging:
+  path: logs
