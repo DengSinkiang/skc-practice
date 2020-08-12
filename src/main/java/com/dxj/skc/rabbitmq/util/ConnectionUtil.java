@@ -19,12 +19,12 @@ public class ConnectionUtil {
         //定义连接工厂
         ConnectionFactory factory = new ConnectionFactory();
         //设置服务地址
-        factory.setHost("192.168.51.30");
+        factory.setHost("127.0.0.1");
         //端口
-        factory.setPort(28252);
+        factory.setPort(2181);
         //设置账号信息，用户名、密码
-        factory.setUsername("rabbitmq");
-        factory.setPassword("rabbitmq");
+        factory.setUsername("guest");
+        factory.setPassword("guest");
         // 通过工程获取连接
         return factory.newConnection();
     }
