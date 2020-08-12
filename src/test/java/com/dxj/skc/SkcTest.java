@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -24,8 +24,8 @@ import java.util.List;
  * @Date: 2020/7/28 16:52
  * @CopyRight: 2020 sk-admin all rights reserved.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = SkcApplication.class)
 public class SkcTest {
     @Autowired
     private AmqpTemplate amqpTemplate;

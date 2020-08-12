@@ -78,6 +78,35 @@
         </rollingPolicy>
     </appender>
 
+    <appender name="DEBUG-LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--&lt;!&ndash; 被写入的文件名 &ndash;&gt;-->
+        <!--<file>${logPath}/info.log</file>-->
+        <!-- 指定过滤策略 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <!-- 指定日志输出格式 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+
+        <!-- 指定收集策略：滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 指定生成日志保存地址 -->
+            <fileNamePattern>${logPath}/%d{yyyy-MM-dd}/debug/debug-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <!--每个文件最多100MB-->
+            <maxFileSize>100MB</maxFileSize>
+            <!--日志文件保留天数-->
+            <maxHistory>15</maxHistory>
+            <!--每个文件最多100MB，保留15天的历史记录，但最多20GB-->
+            <totalSizeCap>20GB</totalSizeCap>
+            <!--重启清理日志文件-->
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+    </appender>
+
     <appender name="ERROR-LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--&lt;!&ndash; 被写入的文件名 &ndash;&gt;-->
         <!--<file>${logPath}/error.log</file>-->
@@ -132,6 +161,14 @@
         <!-- 添加附加的appender,最多只能添加一个 -->
         <appender-ref ref="WARN-LOG"/>
     </appender>
+    <appender name="ASYNC-DEBUG" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+        <discardingThreshold>0</discardingThreshold>
+        <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+        <queueSize>256</queueSize>
+        <!-- 添加附加的appender,最多只能添加一个 -->
+        <appender-ref ref="DEBUG-LOG"/>
+    </appender>
     <appender name="ASYNC-ERROR" class="ch.qos.logback.classic.AsyncAppender">
         <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
         <discardingThreshold>0</discardingThreshold>
@@ -146,6 +183,7 @@
         <appender-ref ref="CONSOLE" />
         <appender-ref ref="INFO-LOG"/>
         <appender-ref ref="WARN-LOG" />
+        <appender-ref ref="DEBUG-LOG"/>
         <appender-ref ref="ERROR-LOG" />
     </root>
 
