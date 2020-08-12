@@ -12,6 +12,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @Description:
+ * @Author: Sinkiang
+ * @Date: 2020/7/28 16:52
+ * @CopyRight: 2020 sk-admin all rights reserved.
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SkcApplication.class)
 public class EsCreateIndexTest {
