@@ -27,7 +27,7 @@ import java.util.List;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SkcApplication.class)
-public class TestQueryIndex {
+public class EsQueryIndexTest {
 
     @Autowired
     private ItemRepository itemRepository;

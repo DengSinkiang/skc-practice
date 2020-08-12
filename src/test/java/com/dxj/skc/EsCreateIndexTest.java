@@ -14,7 +14,7 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SkcApplication.class)
-public class TestCreateIndex {
+public class EsCreateIndexTest {
 
     @Autowired
     private ElasticsearchTemplate esTemplate;
