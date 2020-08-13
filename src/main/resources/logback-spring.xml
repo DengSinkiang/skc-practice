@@ -183,7 +183,7 @@
         <appender-ref ref="CONSOLE"/>
     </logger>
     <!-- 如想看到表格数据，将OFF改为INFO -->
-    <logger name="jdbc.resultsettable" level="OFF" additivity="false">
+    <logger name="jdbc.resultsettable" level="INFO" additivity="false">
         <appender-ref ref="CONSOLE"/>
     </logger>
     <logger name="jdbc.connection" level="OFF" additivity="false">
