@@ -9,5 +9,5 @@ import com.dxj.skc.repository.BaseRepository;
  * @Date: 2020/8/13 13:17
  * @CopyRight: 2020 hundsun all rights reserved.
  */
-public interface GenDataSourceConfService extends BaseRepository<GenDataSourceConf, Long> {
+public interface GenDataSourceConfService extends BaseRepository<GenDataSourceConf, String> {
 }

@@ -45,13 +45,17 @@ public class DataSourceAopInService implements PriorityOrdered {
         DataSourceContextHolder.setDataSource(dds.value());
     }
 
+    /**
+     *
+     * 值越小，越优先执行
+     * 要优于事务的执行
+     * 在启动类中加上了@EnableTransactionManagement(order = 10)
+     *
+     * @return
+     */
     @Override
     public int getOrder() {
-        /**
-         * 值越小，越优先执行
-         * 要优于事务的执行
-         * 在启动类中加上了@EnableTransactionManagement(order = 10)
-         */
+
         return 1;
     }
 

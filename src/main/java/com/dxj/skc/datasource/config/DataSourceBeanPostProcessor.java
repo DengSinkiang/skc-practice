@@ -47,8 +47,10 @@ public class DataSourceBeanPostProcessor {
                     newDataSource.setPassword(dataSourceConf.getPwd());
                     newDataSource.setUrl(dataSourceConf.getJdbcUrl());
                     // newDataSource.setDriverClassName(dataSourceConf.getDriverClassName());  // 其实也可以默认
-                    newDataSource.init(); // 初始化数据源
-                    DynamicDataSourceProvider.addDataSource(dataSourceConf.getName(), newDataSource);  // 放入数据源集合中
+                    // 初始化数据源
+                    newDataSource.init();
+                    // 放入数据源集合中
+                    DynamicDataSourceProvider.addDataSource(dataSourceConf.getName(), newDataSource);
                     log.info("数据源{}初始化完成！", dataSourceConf.getName());
                 } catch (SQLException throwables) {
                     log.error("数据源{}初始化失败！异常内容:{}", dataSourceConf.getName(), throwables.getMessage());
