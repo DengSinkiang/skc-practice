@@ -8,6 +8,8 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 /**
  * @Description:
@@ -32,4 +34,9 @@ public class User extends BaseEntity {
 
     @ApiModelProperty(value = "年龄")
     private int age;
+
+    @Email
+    @NotBlank
+    @ApiModelProperty(value = "邮箱")
+    private String email;
 }
