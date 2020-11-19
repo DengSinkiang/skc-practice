@@ -11,6 +11,6 @@ import org.mapstruct.ReportingPolicy;
  * @Date: 2020/11/18 9:57
  * @CopyRight: 2020 skc all rights reserved.
  */
-@Mapper(componentModel = "spring",unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface UserMapper extends BaseMapper<UserDTO, User>{
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+public interface UserMapper extends BaseMapper<UserDTO, User> {
 }
