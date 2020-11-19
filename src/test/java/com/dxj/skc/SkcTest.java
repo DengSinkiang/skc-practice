@@ -2,9 +2,11 @@ package com.dxj.skc;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.dxj.skc.domain.dto.UserDTO;
 import com.dxj.skc.domain.entity.User;
 import com.dxj.skc.domain.vo.PageVo;
 import com.dxj.skc.exception.SkException;
+import com.dxj.skc.mapstruct.UserMapper;
 import com.dxj.skc.service.UserService;
 import com.google.common.collect.Lists;
 import org.junit.Test;
@@ -33,6 +35,8 @@ public class SkcTest {
     private AmqpTemplate amqpTemplate;
     @Autowired
     private UserService userService;
+    @Autowired
+    private UserMapper userMapper;
     @Test
     public void testLoad() {
         System.out.println("hello skc");
@@ -86,6 +90,15 @@ public class SkcTest {
         for (User user : page) {
             System.out.println("userId:" + user.getId());
         }
-
+    }
+    @Test
+    public void testMapStruct() {
+        User user = new User();
+        user.setUsername("sinkiang");
+        user.setPassword("123456");
+        user.setAge(22);
+        user.setEmail("123456@qq.com");
+        UserDTO userDTO = userMapper.toDto(user);
+        System.out.println(userDTO);
     }
 }
