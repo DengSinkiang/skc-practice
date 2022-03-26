@@ -36,7 +36,7 @@ public class ResultUtils<T> {
     protected ResultUtils() {
     }
 
-    protected ResultUtils(int code, String message, LocalDateTime timestamp, T data) {
+    private ResultUtils(int code, String message, LocalDateTime timestamp, T data) {
         this.code = code;
         this.message = message;
         this.timestamp = timestamp;
@@ -68,7 +68,7 @@ public class ResultUtils<T> {
      * @param errorCode 错误码
      * @param message 错误信息
      */
-    public static <T> ResultUtils<T> failed(int errorCode, String message) {
+    private static <T> ResultUtils<T> failed(int errorCode, String message) {
         return new ResultUtils<>(errorCode, message, LocalDateTime.now(), null);
     }
 

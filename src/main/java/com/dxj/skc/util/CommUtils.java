@@ -3,14 +3,8 @@ package com.dxj.skc.util;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * @Description:
@@ -52,31 +46,4 @@ public class CommUtils {
         }
         return ip;
     }
-
-    public static boolean isEmpty(String value) {
-        int strLen;
-        if ((value == null) || ((strLen = value.length()) == 0)) {
-            return true;
-        }
-        for (int i = 0; i < strLen; i++) {
-            if (!Character.isWhitespace(value.charAt(i))) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-
-    public static boolean areNotEmpty(String... values) {
-        boolean result = true;
-        if ((values == null) || (values.length == 0)) {
-            result = false;
-        } else {
-            for (String value : values) {
-                result &= !isEmpty(value);
-            }
-        }
-        return result;
-    }
-
 }

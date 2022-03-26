@@ -76,9 +76,11 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.3.2</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
         </dependency>
 
         <!-- 监控 sql 日志 -->
@@ -97,6 +99,10 @@
                 <exclusion>
                     <groupId>com.google.guava</groupId>
                     <artifactId>guava</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>mapstruct</artifactId>
+                    <groupId>org.mapstruct</groupId>
                 </exclusion>
             </exclusions>
         </dependency>
@@ -240,7 +246,6 @@
             <artifactId>flyway-core</artifactId>
             <version>5.2.4</version>
         </dependency>
-
     </dependencies>
     <build>
         <plugins>
