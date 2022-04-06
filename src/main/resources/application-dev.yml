@@ -64,11 +64,6 @@ spring:
     addresses: 127.0.0.1:5672
 
   # 配置 es
-  data:
-    elasticsearch:
-      cluster-name: singwa_imooc
-      cluster-nodes: 127.0.0.1:9300
-
 
 # Mybatis-plus
 mybatis-plus:

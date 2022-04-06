@@ -4,18 +4,16 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.dxj.skc.domain.dto.UserDTO;
 import com.dxj.skc.domain.entity.User;
-import com.dxj.skc.domain.vo.PageVo;
 import com.dxj.skc.exception.SkException;
 import com.dxj.skc.mapstruct.UserMapper;
 import com.dxj.skc.service.UserService;
 import com.google.common.collect.Lists;
 import org.junit.jupiter.api.Test;
+import org.mapstruct.factory.Mappers;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,33 +29,28 @@ public class SkcTest {
     private AmqpTemplate amqpTemplate;
     @Autowired
     private UserService userService;
-    @Autowired
-    private UserMapper userMapper;
     @Test
-    public void testLoad() {
+    void testLoad() {
         System.out.println("hello skc");
     }
+
     @Test
-    public void testSend() throws InterruptedException {
+    void testSend() throws InterruptedException {
         String msg = "hello, Spring boot amqp";
         this.amqpTemplate.convertAndSend("spring.test.exchange","a.b", msg);
         // 等待10秒后再结束
         Thread.sleep(10000);
     }
     @Test
-    public void testSaveUser() {
+    void testSaveUser() {
         long time1 = System.currentTimeMillis();
         List<User> list = new ArrayList<>();
         for (int i = 0; i < 10000; i++) {
             User user = new User();
-            user.setAge(25);
-            user.setPassword("123456");
-            user.setUsername("dxj");
-            user.setCreateBy("admin");
-            user.setCreateTime(LocalDateTime.now());
-            user.setDelFlag(0);
-            user.setUpdateBy("dxj");
-            user.setUpdateTime(LocalDateTime.now());
+            user.setAge(25 + i);
+            user.setPassword("123456" + i);
+            user.setUsername("dxj" + i);
+            user.setEmail("dxj"  + i + "@qq.com");
             list.add(user);
         }
         List<List<User>> subList = Lists.partition(list, 1000);
@@ -74,27 +67,24 @@ public class SkcTest {
 
     }
     @Test
-    public void testQueryUser() {
+    void testQueryUser() {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("username", "dxj");
+        queryWrapper.eq("username", "dxj0");
 
-        PageVo pageVo = new PageVo();
-        pageVo.setPageIndex(2);
-        pageVo.setPageSize(10);
-        Page<User> pageObj = new Page<>(2, 10);
+        Page<User> pageObj = new Page<>(1, 10);
         List<User> page = userService.page(pageObj, queryWrapper).getRecords();
         for (User user : page) {
             System.out.println("userId:" + user.getId());
         }
     }
     @Test
-    public void testMapStruct() {
+    void testMapStruct() {
         User user = new User();
         user.setUsername("sinkiang");
         user.setPassword("123456");
         user.setAge(22);
         user.setEmail("123456@qq.com");
-        UserDTO userDTO = userMapper.toDto(user);
+        UserDTO userDTO = Mappers.getMapper(UserMapper.class).userToUserDTO(user);
         System.out.println(userDTO);
     }
 }
