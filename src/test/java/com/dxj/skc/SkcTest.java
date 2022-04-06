@@ -9,17 +9,14 @@ import com.dxj.skc.exception.SkException;
 import com.dxj.skc.mapstruct.UserMapper;
 import com.dxj.skc.service.UserService;
 import com.google.common.collect.Lists;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -28,7 +25,6 @@ import java.util.List;
  * @Date: 2020/7/28 16:52
  * @CopyRight: 2020 sk-admin all rights reserved.
  */
-@RunWith(SpringRunner.class)
 @SpringBootTest(classes = SkcApplication.class)
 public class SkcTest {
     @Autowired

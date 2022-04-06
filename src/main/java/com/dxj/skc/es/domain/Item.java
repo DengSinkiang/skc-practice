@@ -14,7 +14,7 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
  * @Date: 2020/7/28 16:52
  * @CopyRight: 2020 sk-admin all rights reserved.
  */
-@Document(indexName = "item", type = "docs", shards = 1, replicas = 0)
+@Document(indexName = "item")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
