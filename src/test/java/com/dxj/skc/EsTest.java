@@ -21,7 +21,7 @@ import java.util.Map;
 @SpringBootTest(classes = SkcApplication.class)
 public class EsTest {
 
-    private ElasticsearchClient client = EsClient.getClient();
+    private final ElasticsearchClient client = EsClient.getClient();
 
     private final static String INDEX_NAME = "es_person";
     private final static String ALIAS_INDEX_NAME = "alias_es_person";

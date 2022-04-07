@@ -20,7 +20,6 @@
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <lombok.version>1.18.22</lombok.version>
         <druid.version>1.1.22</druid.version>
         <log4jdbc.version>1.16</log4jdbc.version>
         <swagger.version>2.9.2</swagger.version>
@@ -37,6 +36,10 @@
         <hutool.version>5.7.22</hutool.version>
         <redisson.version>3.5.4</redisson.version>
         <curator.version>2.12.0</curator.version>
+        <jackson-databind.version>2.12.6.1</jackson-databind.version>
+        <jakarta.version>2.0.1</jakarta.version>
+        <maven.version>3.6.2</maven.version>
+        <maven-javadoc.version>3.3.2</maven-javadoc.version>
     </properties>
 
     <dependencies>
@@ -289,13 +292,13 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.12.6.1</version>
+            <version>${jackson-databind.version}</version>
         </dependency>
         <!-- Needed only if you use the spring-boot Maven plugin -->
         <dependency>
             <groupId>jakarta.json</groupId>
             <artifactId>jakarta.json-api</artifactId>
-            <version>2.0.1</version>
+            <version>${jakarta.version}</version>
         </dependency>
     </dependencies>
     <build>
@@ -303,7 +306,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.2</version>
+                <version>${maven.version}</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
@@ -313,7 +316,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.1.1</version>
+                <version>${maven-javadoc.version}</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
