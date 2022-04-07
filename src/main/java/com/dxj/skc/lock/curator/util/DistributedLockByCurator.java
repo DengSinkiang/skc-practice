@@ -13,10 +13,8 @@ import org.springframework.stereotype.Service;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * @Description:
- * @Author: dengxj29231
- * @Date: 2020/7/27 10:36
- * @CopyRight: 2020 skc all rights reserved.
+ * @author sinkiang
+ * @date 2022/4/7 10:32
  */
 @Slf4j
 @Service

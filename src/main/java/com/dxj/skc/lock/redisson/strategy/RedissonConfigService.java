@@ -4,10 +4,9 @@ import com.dxj.skc.lock.redisson.entity.RedissonProperties;
 import org.redisson.config.Config;
 
 /**
- * @Description: Redisson 配置构建接口
- * @Author: Sinkiang
- * @Date: 2020/7/27 14:45
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @description: Redisson 配置构建接口
+ * @author sinkiang
+ * @date 2022/4/7 10:32
  */
 public interface RedissonConfigService {
 

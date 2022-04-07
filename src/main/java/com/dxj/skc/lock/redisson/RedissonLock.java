@@ -7,10 +7,9 @@ import org.redisson.api.RLock;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @Description: 针对源码 Redisson 进行封装
- * @Author: Sinkiang
- * @Date: 2020/7/27 14:40
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @description: 针对源码 Redisson 进行封装
+ * @author: sinkiang
+ * @date: 2022/4/7 10:32
  */
 @Slf4j
 public class RedissonLock {

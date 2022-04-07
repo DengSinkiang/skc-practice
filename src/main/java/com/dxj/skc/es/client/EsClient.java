@@ -11,6 +11,10 @@ import org.apache.http.client.CredentialsProvider;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.elasticsearch.client.RestClient;
 
+/**
+ * @author sinkiang
+ * @date 2022/4/7 10:32
+ */
 public class EsClient {
 
     private volatile static ElasticsearchClient client;

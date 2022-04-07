@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @Description: 基于注解的方式 加锁
- * @Author: Sinkiang
- * @Date: 2020/7/27 10:35
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @description: 基于注解的方式加锁
+ * @author sinkiang
+ * @date 2022/4/7 10:32
  */
 @RestController
 @Slf4j

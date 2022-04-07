@@ -5,11 +5,9 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 
 /**
- *
- * @Description: 生产者，模拟为商品服务
- * @Author: Sinkiang
- * @Date: 2020/7/30 9:16
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @description: 生产者，模拟为商品服务
+ * @author: sinkiang
+ * @date: 2020/8/6 17:36
  */
 public class Send {
     private final static String EXCHANGE_NAME = "topic_exchange_test";

@@ -4,10 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @Description:
- * @Author: dengxj29231
- * @Date: 2020/4/13 9:45
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @author: sinkiang
+ * @date: 2020/4/13 9:45
  */
 @SpringBootApplication
 public class SkcApplication {

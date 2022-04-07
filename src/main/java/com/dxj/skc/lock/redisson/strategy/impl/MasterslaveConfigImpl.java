@@ -11,12 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Description: 主从部署 Redisson 配置
+ * @description: 主从部署 Redisson 配置
  * 连接方式: 主节点,子节点,子节点
  * 格式为: 127.0.0.1:6379,127.0.0.1:6380,127.0.0.1:6381
- * @Author: Sinkiang
- * @Date: 2020/7/27 10:35
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @author: sinkiang
+ * @date: 2022/4/7 10:32
  */
 @Slf4j
 public class MasterslaveConfigImpl implements RedissonConfigService {

@@ -18,6 +18,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author dengxj
+ * @date 2022/4/7 10:32
+ */
 @SpringBootTest(classes = SkcApplication.class)
 public class EsTest {
 

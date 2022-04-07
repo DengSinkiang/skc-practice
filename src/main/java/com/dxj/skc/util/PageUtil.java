@@ -7,10 +7,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 /**
- * @Description:
- * @Author: Sinkiang
- * @Date: 2020/3/27 16:01
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @author: sinkiang
+ * @date: 2020/4/13 9:45
  */
 public class PageUtil {
 

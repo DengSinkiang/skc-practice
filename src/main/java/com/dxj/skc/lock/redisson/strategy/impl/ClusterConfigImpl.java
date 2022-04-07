@@ -8,13 +8,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.redisson.config.Config;
 
 /**
- * @Description: 集群方式 Redisson 部署
- * 地址格式：
- * cluster方式至少6个节点(3主3从，3主做sharding，3从用来保证主宕机后可以高可用)
- * 格式为: 127.0.0.1:6379,127.0.0.1:6380,127.0.0.1:6381,127.0.0.1:6382,127.0.0.1:6383,127.0.0.1:6384
- * @Author: Sinkiang
- * @Date: 2020/7/27 10:35
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @description: 集群方式 Redisson 部署
+ *  * 地址格式：
+ *  * cluster方式至少6个节点(3主3从，3主做sharding，3从用来保证主宕机后可以高可用)
+ *  * 格式为: 127.0.0.1:6379,127.0.0.1:6380,127.0.0.1:6381,127.0.0.1:6382,127.0.0.1:6383,127.0.0.1:6384
+ * @author sinkiang
+ * @date 2022/4/7 10:32
  */
 @Slf4j
 public class ClusterConfigImpl implements RedissonConfigService {

@@ -6,12 +6,9 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 /**
- * @Description:
- * @Author: dengxj29231
- * @Date: 2020/11/18 9:57
- * @CopyRight: 2020 skc all rights reserved.
+ * @author: sinkiang
+ * @date: 2022/4/7 10:32
  */
-
 @Mapper
 public interface UserMapper {
 

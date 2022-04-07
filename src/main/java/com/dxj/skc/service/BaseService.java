@@ -9,10 +9,9 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @Description: JDK8 函数式接口注解 仅能包含一个抽象方法
- * @Author: Sinkiang
- * @Date: 2020/3/27 15:50
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @description: JDK8 函数式接口注解 仅能包含一个抽象方法
+ * @author: sinkiang
+ * @date: 2020/3/27 15:50
  */
 @FunctionalInterface
 public interface BaseService<E, ID extends Serializable> {

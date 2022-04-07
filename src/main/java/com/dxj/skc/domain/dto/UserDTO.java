@@ -5,10 +5,8 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * @Description:
- * @Author: dengxj29231
- * @Date: 2020/11/18 9:55
- * @CopyRight: 2020 skc all rights reserved.
+ * @author sinkiang
+ * @date 2022/4/7 10:32
  */
 @Data
 public class UserDTO {

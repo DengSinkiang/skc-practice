@@ -6,10 +6,9 @@ import com.rabbitmq.client.*;
 import java.io.IOException;
 
 /**
- * @Description: 消费者2
- * @Author: Sinkiang
- * @Date: 2020/7/30 9:09
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @description: 消费者2
+ * @author: sinkiang
+ * @date: 2020/7/30 8:53
  */
 public class Recv2 {
     private final static String QUEUE_NAME = "direct_exchange_queue_2";

@@ -3,10 +3,8 @@ package com.dxj.skc.exception;
 import org.springframework.util.StringUtils;
 
 /**
- * @Description:
- * @Author: Sinkiang
- * @Date: 2020/3/31 18:28
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @author sinkiang
+ * @date 2022/4/7 10:32
  */
 public class EntityExistException extends RuntimeException {
 

@@ -9,10 +9,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
- * @Description:
- * @Author: Sinkiang
- * @Date: 2020/7/1 9:12
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @author: sinkiang
+ * @date: 2020/4/13 9:45
  */
 public class CopierUtils {
 

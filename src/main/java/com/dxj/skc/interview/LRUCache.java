@@ -3,6 +3,10 @@ package com.dxj.skc.interview;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * @author sinkiang
+ * @date 2022/4/7 10:32
+ */
 public class LRUCache<K, V> extends LinkedHashMap<K, V> {
     private final int CACHE_SIZE;
 

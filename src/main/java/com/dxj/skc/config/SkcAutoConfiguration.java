@@ -9,10 +9,8 @@ import org.springframework.context.annotation.Configuration;
 import javax.annotation.PostConstruct;
 
 /**
- * @Description:
- * @Author: Sinkiang
- * @Date: 2020/3/27 16:24
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @author sinkiang
+ * @date 2022/4/7 10:32
  */
 @Configuration
 @Slf4j

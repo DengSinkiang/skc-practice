@@ -7,10 +7,9 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 /**
- * @Description: API 返回结果封装工具类
- * @Author: Sinkiang
- * @Date: 2020/3/27 15:58
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @description: API 返回结果封装工具类
+ * @author: sinkiang
+ * @date: 2020/4/13 9:45
  */
 @Data
 public class ResultUtils<T> {

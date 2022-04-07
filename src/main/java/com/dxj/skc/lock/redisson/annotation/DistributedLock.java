@@ -3,10 +3,9 @@ package com.dxj.skc.lock.redisson.annotation;
 import java.lang.annotation.*;
 
 /**
- * @Description: 基于注解的分布式式锁
- * @Author: Sinkiang
- * @Date: 2020/7/27 10:35
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @description: 基于注解的分布式式锁
+ * @author sinkiang
+ * @date 2022/4/7 10:32
  */
 @Documented
 @Inherited

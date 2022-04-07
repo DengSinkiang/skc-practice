@@ -7,10 +7,8 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 /**
- * @Description:
- * @Author: Sinkiang
- * @Date: 2020/7/1 9:12
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @author: sinkiang
+ * @date: 2020/4/13 9:45
  */
 @Slf4j
 public class CommUtils {

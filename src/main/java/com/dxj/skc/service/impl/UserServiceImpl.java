@@ -7,10 +7,8 @@ import com.dxj.skc.service.UserService;
 import org.springframework.stereotype.Service;
 
 /**
- * @Description:
- * @Author: Sinkiang
- * @Date: 2020/8/6 17:36
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @author: sinkiang
+ * @date: 2020/8/6 17:36
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {

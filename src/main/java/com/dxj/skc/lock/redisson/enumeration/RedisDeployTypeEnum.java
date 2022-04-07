@@ -1,14 +1,13 @@
 package com.dxj.skc.lock.redisson.enumeration;
 
 /**
- * @Description: Redis连接方式包含:
- * standalone-单节点部署方式
- * sentinel-哨兵部署方式
- * cluster-集群方式
- * masterslave-主从部署方式
- * @Author: Sinkiang
- * @Date: 2020/7/27 10:35
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @description: Redis连接方式包含:
+ *  * standalone-单节点部署方式
+ *  * sentinel-哨兵部署方式
+ *  * cluster-集群方式
+ *  * masterslave-主从部署方式
+ * @author sinkiang
+ * @date 2022/4/7 10:32
  */
 public enum RedisDeployTypeEnum {
 

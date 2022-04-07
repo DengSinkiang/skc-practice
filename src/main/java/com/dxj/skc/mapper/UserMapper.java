@@ -5,10 +5,8 @@ import com.dxj.skc.domain.entity.User;
 import org.springframework.stereotype.Repository;
 
 /**
- * @Description:
- * @Author: Sinkiang
- * @Date: 2020/8/6 16:22
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @author: sinkiang
+ * @date: 2022/4/7 10:32
  */
 @Repository
 public interface UserMapper extends BaseMapper<User> {

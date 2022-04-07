@@ -2,6 +2,10 @@ package com.dxj.skc.util;
 
 import java.util.List;
 
+/**
+ * @author: sinkiang
+ * @date: 2020/4/13 9:45
+ */
 public class PageInfoUtil<T> {
 
     /**

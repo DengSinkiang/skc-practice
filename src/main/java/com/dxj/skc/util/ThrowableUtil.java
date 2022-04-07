@@ -4,10 +4,9 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 /**
- * @Description: 异常工具
- * @Author: Sinkiang
- * @Date: 2020/3/27 16:14
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @description: 异常工具
+ * @author: sinkiang
+ * @date: 2020/3/27 16:14
  */
 public class ThrowableUtil {
 

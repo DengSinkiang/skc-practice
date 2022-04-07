@@ -9,10 +9,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.redisson.config.Config;
 
 /**
- * @Description: 哨兵集群部署 Redis 连接配置
- * @Author: Sinkiang
- * @Date: 2020/7/27 10:35
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @description: 哨兵集群部署 Redis 连接配置
+ * @author: Sinkiang
+ * @date: 2022/4/7 10:32
  */
 @Slf4j
 public class SentineConfigImpl implements RedissonConfigService {

@@ -15,10 +15,8 @@ import java.util.Objects;
 
 
 /**
- * @Description:
- * @Author: Sinkiang
- * @Date: 2020/3/27 15:58
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @author sinkiang
+ * @date 2022/4/7 10:32
  */
 @Slf4j
 @RestControllerAdvice

@@ -3,10 +3,9 @@ package com.dxj.skc.util;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @Description: 雪花算法工具生成
- * @Author: Sinkiang
- * @Date: 2020/3/27 16:14
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @description: 雪花算法工具生成
+ * @author: sinkiang
+ * @date: 2020/3/27 16:14
  */
 @Slf4j
 public class SnowFlakeUtil {

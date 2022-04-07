@@ -5,10 +5,9 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @Description: redis 操作 Service
- * @Author: Sinkiang
- * @Date: 2020/7/27 10:35
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @description: redis 操作 Service
+ * @author: sinkiang
+ * @date: 2020/7/27 10:35
  */
 public interface RedisService {
 

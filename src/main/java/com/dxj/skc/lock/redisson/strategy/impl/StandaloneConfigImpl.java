@@ -8,10 +8,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.redisson.config.Config;
 
 /**
- * @Description: 单机部署 Redisson 配置
- * @Author: Sinkiang
- * @Date: 2020/7/27 10:35
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @description: 单机部署 Redisson 配置
+ * @author: sinkiang
+ * @date: 2020/7/27 10:35
  */
 @Slf4j
 public class StandaloneConfigImpl implements RedissonConfigService {

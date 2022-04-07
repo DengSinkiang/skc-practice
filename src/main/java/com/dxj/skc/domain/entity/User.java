@@ -12,10 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * @Description:
- * @Author: Sinkiang
- * @Date: 2020/8/6 16:22
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @author sinkiang
+ * @date 2022/4/7 10:32
  */
 @Data
 @TableName("t_user")

@@ -18,10 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Description:
- * @Author: dengxj29231
- * @Date: 2020/7/28 16:52
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @author dengxj
+ * @date 2022/4/7 10:32
  */
 @SpringBootTest(classes = SkcApplication.class)
 public class SkcTest {

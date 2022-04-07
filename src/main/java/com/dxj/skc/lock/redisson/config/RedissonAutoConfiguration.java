@@ -13,10 +13,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 
 /**
- * @Description: Redisson 自动化配置
- * @Author: Sinkiang
- * @Date: 2020/7/27 10:35
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @description: Redisson 自动化配置
+ * @author sinkiang
+ * @date 2022/4/7 10:32
  */
 @Configuration
 @ConditionalOnClass(Redisson.class)

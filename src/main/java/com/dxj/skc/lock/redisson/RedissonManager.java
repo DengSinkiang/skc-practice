@@ -13,10 +13,9 @@ import org.redisson.Redisson;
 import org.redisson.config.Config;
 
 /**
- * @Description: Redisson 核心配置，用于提供初始化的 redisson 实例
- * @Author: Sinkiang
- * @Date: 2020/7/27 14:41
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @description: Redisson 核心配置，用于提供初始化的 redisson 实例
+ * @author: Sinkiang
+ * @date: 2022/4/7 10:32
  */
 @Slf4j
 public class RedissonManager {

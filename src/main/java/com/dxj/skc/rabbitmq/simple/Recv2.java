@@ -1,10 +1,9 @@
 package com.dxj.skc.rabbitmq.simple;
 
 /**
- * @Description: 消费者,手动进行ACK
- * @Author: Sinkiang
- * @Date: 2020/7/30 9:14
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @description: 消费者,手动进行ACK
+ * @author: sinkiang
+ * @date: 2020/8/6 17:36
  */
 
 import com.dxj.skc.rabbitmq.util.ConnectionUtil;

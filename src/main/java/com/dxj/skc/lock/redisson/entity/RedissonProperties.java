@@ -6,10 +6,9 @@ import lombok.NoArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * @Description: 读取 redis 配置信息，封装到当前实体中
- * @Author: Sinkiang
- * @Date: 2020/7/27 10:35
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @description: 读取 redis 配置信息，封装到当前实体中
+ * @author sinkiang
+ * @date 2022/4/7 10:32
  */
 @ConfigurationProperties(prefix = "redisson.lock.server")
 @Data

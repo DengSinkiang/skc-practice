@@ -8,10 +8,8 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 /**
- * @Description:
- * @Author: Sinkiang
- * @Date: 2020/7/30 8:59
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @author: sinkiang
+ * @date: 2020/8/6 17:36
  */
 @Component
 public class Listener {

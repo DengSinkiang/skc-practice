@@ -6,10 +6,8 @@ import com.rabbitmq.client.*;
 import java.io.IOException;
 
 /**
- * @Description:
- * @Author: Sinkiang
- * @Date: 2020/7/30 9:16
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @author: sinkiang
+ * @date: 2020/8/6 17:36
  */
 public class Recv2 {
     private final static String QUEUE_NAME = "topic_exchange_queue_2";

@@ -20,10 +20,8 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * @Description:
- * @Author: Sinkiang
- * @Date: 2020/3/27 16:09
- * @CopyRight: 2020 sk-admin all rights reserved.
+ * @author sinkiang
+ * @date 2022/4/7 10:32
  */
 @Data
 @MappedSuperclass

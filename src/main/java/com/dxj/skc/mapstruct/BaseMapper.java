@@ -3,8 +3,8 @@ package com.dxj.skc.mapstruct;
 import java.util.List;
 
 /**
- * @author Sinkiang
- * @date 2018-11-23
+ * @author: sinkiang
+ * @date: 2022/4/7 10:32
  */
 public interface BaseMapper<D, E> {
 
