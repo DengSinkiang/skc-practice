@@ -13,6 +13,7 @@ public interface RedisService {
 
     /**
      * 保存属性
+     *
      * @param key
      * @param value
      * @param time
@@ -21,6 +22,7 @@ public interface RedisService {
 
     /**
      * 保存属性
+     *
      * @param key
      * @param value
      */
@@ -28,6 +30,7 @@ public interface RedisService {
 
     /**
      * 获取属性
+     *
      * @param key
      * @return
      */
@@ -35,6 +38,7 @@ public interface RedisService {
 
     /**
      * 删除属性
+     *
      * @param key
      * @return
      */
@@ -42,6 +46,7 @@ public interface RedisService {
 
     /**
      * 批量删除属性
+     *
      * @param keys
      * @return
      */
@@ -49,6 +54,7 @@ public interface RedisService {
 
     /**
      * 设置过期时间
+     *
      * @param key
      * @param time
      * @return
@@ -57,6 +63,7 @@ public interface RedisService {
 
     /**
      * 获取过期时间
+     *
      * @param key
      * @return
      */
@@ -64,6 +71,7 @@ public interface RedisService {
 
     /**
      * 判断是否有该属性
+     *
      * @param key
      * @return
      */
@@ -71,6 +79,7 @@ public interface RedisService {
 
     /**
      * 按delta递增
+     *
      * @param key
      * @param delta
      * @return
@@ -79,6 +88,7 @@ public interface RedisService {
 
     /**
      * 按delta递减
+     *
      * @param key
      * @param delta
      * @return
@@ -87,6 +97,7 @@ public interface RedisService {
 
     /**
      * 获取Hash结构中的属性
+     *
      * @param key
      * @param hashKey
      * @return
@@ -95,6 +106,7 @@ public interface RedisService {
 
     /**
      * 向Hash结构中放入一个属性
+     *
      * @param key
      * @param hashKey
      * @param value
@@ -105,6 +117,7 @@ public interface RedisService {
 
     /**
      * 向Hash结构中放入一个属性
+     *
      * @param key
      * @param hashKey
      * @param value
@@ -113,6 +126,7 @@ public interface RedisService {
 
     /**
      * 直接获取整个Hash结构
+     *
      * @param key
      * @return
      */
@@ -120,6 +134,7 @@ public interface RedisService {
 
     /**
      * 直接设置整个Hash结构
+     *
      * @param key
      * @param map
      * @param time
@@ -129,6 +144,7 @@ public interface RedisService {
 
     /**
      * 直接设置整个Hash结构
+     *
      * @param key
      * @param map
      */
@@ -137,6 +153,7 @@ public interface RedisService {
 
     /**
      * 删除Hash结构中的属性
+     *
      * @param key
      * @param hashKey
      */
@@ -144,6 +161,7 @@ public interface RedisService {
 
     /**
      * 判断Hash结构中是否有该属性
+     *
      * @param key
      * @param hashKey
      * @return
@@ -152,6 +170,7 @@ public interface RedisService {
 
     /**
      * Hash结构中属性递增
+     *
      * @param key
      * @param hashKey
      * @param delta
@@ -161,6 +180,7 @@ public interface RedisService {
 
     /**
      * v
+     *
      * @param key
      * @param hashKey
      * @param delta
@@ -170,6 +190,7 @@ public interface RedisService {
 
     /**
      * 获取Set结构
+     *
      * @param key
      * @return
      */
@@ -177,6 +198,7 @@ public interface RedisService {
 
     /**
      * 向Set结构中添加属性
+     *
      * @param key
      * @param values
      * @return
@@ -185,6 +207,7 @@ public interface RedisService {
 
     /**
      * 向Set结构中添加属性
+     *
      * @param key
      * @param time
      * @param values
@@ -194,6 +217,7 @@ public interface RedisService {
 
     /**
      * 是否为Set中的属性
+     *
      * @param key
      * @param value
      * @return
@@ -202,6 +226,7 @@ public interface RedisService {
 
     /**
      * 获取Set结构的长度
+     *
      * @param key
      * @return
      */
@@ -209,6 +234,7 @@ public interface RedisService {
 
     /**
      * 删除Set结构中的属性
+     *
      * @param key
      * @param values
      * @return
@@ -222,6 +248,7 @@ public interface RedisService {
 
     /**
      * 获取List结构的长度
+     *
      * @param key
      * @return
      */
@@ -229,6 +256,7 @@ public interface RedisService {
 
     /**
      * 根据索引获取List中的属性
+     *
      * @param key
      * @param index
      * @return
@@ -237,6 +265,7 @@ public interface RedisService {
 
     /**
      * 向List结构中添加属性
+     *
      * @param key
      * @param value
      * @return
@@ -245,6 +274,7 @@ public interface RedisService {
 
     /**
      * 向List结构中添加属性
+     *
      * @param key
      * @param value
      * @param time
@@ -254,6 +284,7 @@ public interface RedisService {
 
     /**
      * 向List结构中批量添加属性
+     *
      * @param key
      * @param values
      * @return
@@ -262,6 +293,7 @@ public interface RedisService {
 
     /**
      * 向List结构中批量添加属性
+     *
      * @param key
      * @param time
      * @param values
@@ -271,6 +303,7 @@ public interface RedisService {
 
     /**
      * 从List结构中移除属性
+     *
      * @param key
      * @param count
      * @param value

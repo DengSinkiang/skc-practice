@@ -18,6 +18,7 @@ public interface BaseService<E, ID extends Serializable> {
 
     /**
      * 获取 Repository
+     *
      * @return
      */
     BaseRepository<E, ID> getRepository();

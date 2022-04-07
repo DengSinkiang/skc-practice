@@ -55,8 +55,8 @@ public class ResultUtils<T> {
     /**
      * 成功返回结果
      *
-     * @param data 获取的数据
-     * @param  message 提示信息
+     * @param data    获取的数据
+     * @param message 提示信息
      */
     public static <T> ResultUtils<T> success(T data, String message) {
         return new ResultUtils<>(CommonEnum.SUCCESS.getKey(), message, LocalDateTime.now(), data);
@@ -64,8 +64,9 @@ public class ResultUtils<T> {
 
     /**
      * 失败返回结果
+     *
      * @param errorCode 错误码
-     * @param message 错误信息
+     * @param message   错误信息
      */
     private static <T> ResultUtils<T> failed(int errorCode, String message) {
         return new ResultUtils<>(errorCode, message, LocalDateTime.now(), null);
@@ -73,6 +74,7 @@ public class ResultUtils<T> {
 
     /**
      * 失败返回结果
+     *
      * @param message 提示信息
      */
     public static <T> ResultUtils<T> failed(String message) {

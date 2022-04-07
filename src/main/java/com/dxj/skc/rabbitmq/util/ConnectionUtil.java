@@ -10,6 +10,7 @@ import com.rabbitmq.client.ConnectionFactory;
 public class ConnectionUtil {
     /**
      * 建立与RabbitMQ的连接
+     *
      * @return
      * @throws Exception
      */

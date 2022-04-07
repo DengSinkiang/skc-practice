@@ -19,6 +19,7 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> {
         super((int) Math.ceil(cacheSize / 0.75) + 1, 0.75f, true);
         CACHE_SIZE = cacheSize;
     }
+
     @Override
     protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {
         // 当 map中的数据量大于指定的缓存个数的时候，就自动删除最老的数据。

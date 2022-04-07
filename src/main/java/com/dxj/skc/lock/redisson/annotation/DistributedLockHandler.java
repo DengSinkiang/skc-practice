@@ -9,8 +9,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
 /**
- * @description: Redisson 分布式锁注解解析器
  * @author sinkiang
+ * @description: Redisson 分布式锁注解解析器
  * @date 2022/4/7 10:32
  */
 @Aspect

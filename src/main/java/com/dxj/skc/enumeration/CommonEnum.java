@@ -37,6 +37,7 @@ public enum CommonEnum {
     public int getKey() {
         return key;
     }
+
     public String getValue() {
         return value;
     }

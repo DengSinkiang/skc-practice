@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @description: 不基于注解方式锁操作
  * @author sinkiang
+ * @description: 不基于注解方式锁操作
  * @date 2022/4/7 10:32
  */
 @RestController

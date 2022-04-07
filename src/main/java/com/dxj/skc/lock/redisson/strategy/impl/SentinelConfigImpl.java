@@ -17,7 +17,6 @@ import org.redisson.config.Config;
 public class SentinelConfigImpl implements RedissonConfigService {
 
 
-
     @Override
     public Config createRedissonConfig(RedissonProperties redissonProperties) {
         Config config = new Config();

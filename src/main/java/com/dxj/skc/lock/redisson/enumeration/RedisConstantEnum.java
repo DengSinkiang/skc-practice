@@ -1,8 +1,8 @@
 package com.dxj.skc.lock.redisson.enumeration;
 
 /**
- * @description: 全局常量枚举 用来拼接完整的 URL
  * @author sinkiang
+ * @description: 全局常量枚举 用来拼接完整的 URL
  * @date 2022/4/7 10:32
  */
 public enum RedisConstantEnum {

@@ -87,6 +87,6 @@ public class SnowFlakeUtil {
     private static long timeGen() {
         return System.currentTimeMillis();
     }
-    
+
 }
 

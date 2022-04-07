@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Data
 @TableName("t_user")
 @ApiModel(value = "用户")
-public class  User {
+public class User {
 
     @TableId(type = IdType.AUTO)
     private Integer id;

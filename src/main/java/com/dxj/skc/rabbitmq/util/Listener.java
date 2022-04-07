@@ -22,7 +22,7 @@ public class Listener {
                     type = ExchangeTypes.TOPIC
             ),
             key = {"#.#"}))
-    public void listen(String msg){
+    public void listen(String msg) {
         System.out.println("接收到消息：" + msg);
     }
 }

@@ -14,6 +14,6 @@ public class EntityNotExistException extends RuntimeException {
 
     private static String generateMessage(String entity, String field, String val) {
         return StringUtils.capitalize(entity)
-                + " with " + field + " "+ val + " does not exist";
+                + " with " + field + " " + val + " does not exist";
     }
 }

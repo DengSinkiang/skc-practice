@@ -1,7 +1,7 @@
 package com.dxj.skc.rabbitmq.simple;
 
 /**
- * @description: 消费者,手动进行ACK
+ * @description: 消费者, 手动进行ACK
  * @author: sinkiang
  * @date: 2020/8/6 17:36
  */

@@ -16,7 +16,7 @@ public class SkException extends RuntimeException {
         super(msg);
     }
 
-    public SkException(HttpStatus status, String msg){
+    public SkException(HttpStatus status, String msg) {
         super(msg);
         this.status = status.value();
     }

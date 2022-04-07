@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @description: 基于注解的方式加锁
  * @author sinkiang
+ * @description: 基于注解的方式加锁
  * @date 2022/4/7 10:32
  */
 @RestController
