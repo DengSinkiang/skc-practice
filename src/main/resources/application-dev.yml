@@ -93,4 +93,5 @@ redisson:
 
 # 配置日志
 logging:
-  path: logs
+  file:
+    path: logs
