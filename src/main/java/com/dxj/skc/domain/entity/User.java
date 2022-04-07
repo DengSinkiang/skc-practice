@@ -21,7 +21,6 @@ import javax.persistence.Table;
 @TableName("t_user")
 @ApiModel(value = "用户")
 public class  User {
-    private static final long serialVersionUID = 1L;
 
     @TableId(type = IdType.AUTO)
     private Integer id;
