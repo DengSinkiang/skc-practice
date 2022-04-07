@@ -10,11 +10,11 @@ import org.redisson.config.Config;
 
 /**
  * @description: 哨兵集群部署 Redis 连接配置
- * @author: Sinkiang
+ * @author: sinkiang
  * @date: 2022/4/7 10:32
  */
 @Slf4j
-public class SentineConfigImpl implements RedissonConfigService {
+public class SentinelConfigImpl implements RedissonConfigService {
 
 
 

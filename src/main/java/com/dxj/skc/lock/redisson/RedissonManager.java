@@ -5,7 +5,7 @@ import com.dxj.skc.lock.redisson.entity.RedissonProperties;
 import com.dxj.skc.lock.redisson.strategy.RedissonConfigService;
 import com.dxj.skc.lock.redisson.strategy.impl.ClusterConfigImpl;
 import com.dxj.skc.lock.redisson.strategy.impl.MasterslaveConfigImpl;
-import com.dxj.skc.lock.redisson.strategy.impl.SentineConfigImpl;
+import com.dxj.skc.lock.redisson.strategy.impl.SentinelConfigImpl;
 import com.dxj.skc.lock.redisson.strategy.impl.StandaloneConfigImpl;
 import com.google.common.base.Preconditions;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +14,7 @@ import org.redisson.config.Config;
 
 /**
  * @description: Redisson 核心配置，用于提供初始化的 redisson 实例
- * @author: Sinkiang
+ * @author: sinkiang
  * @date: 2022/4/7 10:32
  */
 @Slf4j
@@ -81,7 +81,7 @@ public class RedissonManager {
             if (connectionType.equals(RedisDeployTypeEnum.STANDALONE.getConnectionType())) {
                 redissonConfigService = new StandaloneConfigImpl();
             } else if (connectionType.equals(RedisDeployTypeEnum.SENTINEL.getConnectionType())) {
-                redissonConfigService = new SentineConfigImpl();
+                redissonConfigService = new SentinelConfigImpl();
             } else if (connectionType.equals(RedisDeployTypeEnum.CLUSTER.getConnectionType())) {
                 redissonConfigService = new ClusterConfigImpl();
             } else if (connectionType.equals(RedisDeployTypeEnum.MASTERSLAVE.getConnectionType())) {
