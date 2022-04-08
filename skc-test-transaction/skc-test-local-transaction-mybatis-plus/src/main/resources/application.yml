@@ -1,0 +1,9 @@
+server:
+  port: 10011
+
+spring:
+  profiles:
+    active: dev
+  jpa:
+    open-in-view: true
+
