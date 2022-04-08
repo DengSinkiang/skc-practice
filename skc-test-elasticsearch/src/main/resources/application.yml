@@ -1,0 +1,9 @@
+server:
+  port: 10087
+
+spring:
+  profiles:
+    active: dev
+  jpa:
+    open-in-view: true
+

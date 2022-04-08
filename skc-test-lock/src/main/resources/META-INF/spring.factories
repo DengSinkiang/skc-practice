@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.dxj.skc.lock.redisson.config.RedissonAutoConfiguration\
+  ,com.dxj.skc.lock.curator.config.CuratorConfiguration
+

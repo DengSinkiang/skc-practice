@@ -13,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @date 2022/4/7 10:32
  *
  */
-@SpringBootTest(classes = TransactionApplication.class)
+@SpringBootTest(classes = LocalTransactionApplication.class)
 public class TransactionPropagationExampleImplTest {
 
 	@Autowired

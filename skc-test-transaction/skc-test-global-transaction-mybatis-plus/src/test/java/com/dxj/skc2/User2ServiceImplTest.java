@@ -1,6 +1,5 @@
 package com.dxj.skc2;
 
-import com.dxj.skc2.TransactionApplication;
 import com.dxj.skc2.domain.User2;
 import com.dxj.skc2.service.User2Service;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest(classes = TransactionApplication.class)
+@SpringBootTest(classes = GlobalTransactionApplication.class)
 public class User2ServiceImplTest {
 
 	@Autowired

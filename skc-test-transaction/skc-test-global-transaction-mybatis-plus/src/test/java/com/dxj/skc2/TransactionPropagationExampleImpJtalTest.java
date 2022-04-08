@@ -1,6 +1,5 @@
 package com.dxj.skc2;
 
-import com.dxj.skc2.TransactionApplication;
 import com.dxj.skc2.service.TransactionPropagationExample;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @author JerryTse
  *
  */
-@SpringBootTest(classes = TransactionApplication.class)
+@SpringBootTest(classes = GlobalTransactionApplication.class)
 public class TransactionPropagationExampleImpJtalTest {
 	@Autowired
 	private TransactionPropagationExample transactionPropagationExample;
