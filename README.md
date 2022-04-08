@@ -1,4 +1,4 @@
-# skc-spring-boot-starter
+# skc-practice
 ### 基于 springboot 的基本骨架
 #### 各种学习 demo
 - rabbitmq demo
