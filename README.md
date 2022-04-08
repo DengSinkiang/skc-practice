@@ -1,6 +1,6 @@
 # skc-practice
-### 基于 springboot 的基本骨架
-#### 各种学习 demo
+### 基于 springboot 的实践
+#### 各种实践 demo
 - rabbitmq demo
 - elasticsearch demo
 - zookeeper 分布式锁 demo - curator
