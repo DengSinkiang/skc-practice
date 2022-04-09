@@ -10,7 +10,6 @@ import com.dxj.skc.core.service.UserService;
 import com.google.common.collect.Lists;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
-import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 

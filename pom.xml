@@ -29,9 +29,9 @@
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <druid.version>1.1.22</druid.version>
+        <druid.version>1.2.8</druid.version>
         <log4jdbc.version>1.16</log4jdbc.version>
-        <swagger.version>2.9.2</swagger.version>
+        <swagger.version>3.0.0</swagger.version>
         <zookeeper.version>3.4.13</zookeeper.version>
         <guava.version>[24.1.1,)</guava.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
@@ -83,10 +83,6 @@
             <artifactId>commons-pool2</artifactId>
             <version>${pool.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
-        </dependency>
         <!--Spring boot end-->
 
         <dependency>
@@ -108,10 +104,6 @@
             <version>${swagger.version}</version>
             <exclusions>
                 <exclusion>
-                    <groupId>com.google.guava</groupId>
-                    <artifactId>guava</artifactId>
-                </exclusion>
-                <exclusion>
                     <artifactId>mapstruct</artifactId>
                     <groupId>org.mapstruct</groupId>
                 </exclusion>
@@ -121,12 +113,6 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${swagger.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.google.guava</groupId>
-                    <artifactId>guava</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>cn.hutool</groupId>
