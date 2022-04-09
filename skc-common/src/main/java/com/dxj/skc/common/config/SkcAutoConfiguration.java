@@ -1,4 +1,4 @@
-package com.dxj.skc.config;
+package com.dxj.skc.common.config;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;

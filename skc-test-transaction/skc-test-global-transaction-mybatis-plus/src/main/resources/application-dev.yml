@@ -18,7 +18,7 @@ spring:
         test:
           url: jdbc:log4jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false
           username: root
-          password:
+          password: 123456
           driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
           druid:
             db-type: com.alibaba.druid.pool.DruidDataSource
@@ -27,7 +27,7 @@ spring:
         test1:
           url: jdbc:log4jdbc:mysql://localhost:3306/test1?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false
           username: root
-          password:
+          password: 123456
           driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
           druid:
             db-type: com.alibaba.druid.pool.DruidDataSource
@@ -36,7 +36,7 @@ spring:
         test2:
           url: jdbc:log4jdbc:mysql://localhost:3306/test2?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false
           username: root
-          password:
+          password: 123456
           driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
           druid:
             db-type: com.alibaba.druid.pool.DruidDataSource
