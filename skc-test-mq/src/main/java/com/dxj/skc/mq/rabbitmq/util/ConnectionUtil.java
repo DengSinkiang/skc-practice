@@ -20,7 +20,7 @@ public class ConnectionUtil {
         //设置服务地址
         factory.setHost("127.0.0.1");
         //端口
-        factory.setPort(2181);
+        factory.setPort(5672);
         //设置账号信息，用户名、密码
         factory.setUsername("guest");
         factory.setPassword("guest");
