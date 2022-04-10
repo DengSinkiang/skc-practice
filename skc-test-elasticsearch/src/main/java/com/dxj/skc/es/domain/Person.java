@@ -17,4 +17,5 @@ public class Person {
     private String name;
     private Integer age;
     private Boolean sex;
+    private String birthday;
 }

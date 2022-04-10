@@ -1,21 +1,26 @@
 package com.dxj.skc;
 
+import co.elastic.clients.elasticsearch.ElasticsearchAsyncClient;
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import co.elastic.clients.elasticsearch._types.mapping.*;
 import co.elastic.clients.elasticsearch.core.*;
+import co.elastic.clients.elasticsearch.core.bulk.BulkOperation;
+import co.elastic.clients.elasticsearch.core.bulk.CreateOperation;
 import co.elastic.clients.elasticsearch.core.search.Hit;
 import co.elastic.clients.elasticsearch.indices.*;
 import com.alibaba.fastjson.JSON;
+import com.dxj.skc.es.client.EsAsyncClient;
 import com.dxj.skc.es.client.EsClient;
 import com.dxj.skc.es.domain.Person;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 /**
  * @author sinkiang
@@ -25,6 +30,8 @@ import java.util.Map;
 public class EsTest {
 
     private final ElasticsearchClient client = EsClient.getClient();
+
+    private final ElasticsearchAsyncClient client2 = EsAsyncClient.getClient();
 
     private final static String INDEX_NAME = "es_person";
     private final static String ALIAS_INDEX_NAME = "alias_es_person";
@@ -39,8 +46,11 @@ public class EsTest {
 
         Map<String, Property> propertyMap = new HashMap<>();
         propertyMap.put("name", new Property(new TextProperty.Builder().index(true).store(true).build()));
-        propertyMap.put("age", new Property(new IntegerNumberProperty.Builder().index(false).build()));
-        propertyMap.put("sex", new Property(new BooleanProperty.Builder().index(false).build()));
+        propertyMap.put("nickname", new Property(new TextProperty.Builder().index(true).store(true).build()));
+        propertyMap.put("age", new Property(new IntegerNumberProperty.Builder().index(true).build()));
+        propertyMap.put("sex", new Property(new BooleanProperty.Builder().index(true).build()));
+        propertyMap.put("birthday", new Property(new DateProperty.Builder().format("yyyy-MM-dd HH:mm:ss").index(true).build()));
+        propertyMap.put("email", new Property(new KeywordProperty.Builder().index(true).build()));
 
         TypeMapping typeMapping = new TypeMapping.Builder().properties(propertyMap).build();
         IndexSettings indexSettings = new IndexSettings.Builder().numberOfShards(String.valueOf(1)).numberOfReplicas(String.valueOf(0)).build();
@@ -106,17 +116,60 @@ public class EsTest {
     @Test
     void saveDocument() throws IOException {
 
+        for (int i = 1; i <= 1000; i++) {
+            Person person = new Person();
+            person.setNickname("三儿" + "_" + i);
+            person.setName("张三" + "_" + i);
+            person.setAge(i);
+            person.setSex(true);
+
+            person.setBirthday(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(LocalDateTime.now()));
+            IndexRequest<Person> personIndexRequest = new IndexRequest.Builder<Person>()
+                    .index(INDEX_NAME).document(person).build();
+            IndexResponse indexResponse = client.index(personIndexRequest);
+
+
+            // 结果成功为：Created
+            System.out.println(indexResponse.result());
+        }
+
+    }
+
+    @Test
+    void saveBulkDocument() throws ExecutionException, InterruptedException {
+        List<Person> personList = new ArrayList<>(3);
+
         Person person = new Person();
-        person.setNickname("新疆");
-        person.setName("邓新疆");
+        person.setNickname("三儿");
+        person.setName("张三");
         person.setAge(27);
         person.setSex(true);
-        IndexRequest<Person> personIndexRequest = new IndexRequest.Builder<Person>()
-                .index(INDEX_NAME).id("1").document(person).build();
-        IndexResponse indexResponse = client.index(personIndexRequest);
+        person.setBirthday("1993-10-20 00:00:00");
+        personList.add(person);
+        Person person2 = new Person();
+        person2.setNickname("四儿");
+        person2.setName("李四");
+        person2.setAge(28);
+        person2.setSex(false);
+        person2.setBirthday("1994-11-24 00:00:00");
+        personList.add(person2);
+        Person person3 = new Person();
+        person3.setNickname("五儿");
+        person3.setName("王五");
+        person3.setAge(29);
+        person3.setSex(true);
+        person3.setBirthday("1995-12-28 00:00:00");
+        personList.add(person3);
+        List<BulkOperation> list = new ArrayList<>();
+        for (Person p : personList) {
+            CreateOperation<Person> build = new CreateOperation.Builder<Person>().document(p).build();
+            BulkOperation bulkOperation = new BulkOperation.Builder().create(build).build();
+            list.add(bulkOperation);
+        }
 
-        // 结果成功为：Created
-        System.out.println(indexResponse.result());
+        BulkRequest bulkRequest = new BulkRequest.Builder().index(INDEX_NAME).operations(list).build();
+        CompletableFuture<BulkResponse> bulk = client2.bulk(bulkRequest);
+        System.out.println(bulk.get().errors());
     }
 
     @Test
