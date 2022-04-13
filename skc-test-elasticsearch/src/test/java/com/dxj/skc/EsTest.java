@@ -215,7 +215,7 @@ public class EsTest {
     void scroll() throws IOException {
         List<Person> list = new ArrayList<>();
         SearchRequest searchRequest = new SearchRequest.Builder().index(INDEX_NAME)
-                .scroll(new Time.Builder().time("2d").build())
+                .scroll(new Time.Builder().time("2m").build())
                 .size(10000)
                 .build();
         SearchResponse<Person> personSearchResponse = esClient.getClient().search(searchRequest, Person.class);
