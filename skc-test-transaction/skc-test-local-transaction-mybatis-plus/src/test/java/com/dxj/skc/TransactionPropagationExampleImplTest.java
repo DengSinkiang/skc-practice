@@ -29,7 +29,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testNotransaction_exception_notransaction_notransaction() {
-		transactionPropagationExample.notransaction_exception_notransaction_notransaction();
+		transactionPropagationExample.notransactionExceptionNotransactionNotransaction();
 	}
 
 	/**
@@ -37,7 +37,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testNotransaction_notransaction_notransaction_exception() {
-		transactionPropagationExample.notransaction_notransaction_notransaction_exception();
+		transactionPropagationExample.notransactionNotransactionNotransactionException();
 	}
 
 	/**
@@ -46,7 +46,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_exception_notransaction_notransaction() {
-		transactionPropagationExample.transaction_exception_notransaction_notransaction();
+		transactionPropagationExample.transactionExceptionNotransactionNotransaction();
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_notransaction_notransaction_exception() {
-		transactionPropagationExample.transaction_notransaction_notransaction_exception();
+		transactionPropagationExample.transactionNotransactionNotransactionException();
 	}
 	
 	
@@ -65,7 +65,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_noTransaction_notransaction_exception_try() {
-		transactionPropagationExample.transaction_noTransaction_noTransaction_exception_try();
+		transactionPropagationExample.transactionNoTransactionNoTransactionExceptionTry();
 	}
 
 
@@ -75,7 +75,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testNoTransaction() {
-		transactionPropagationExample.notransaction_required_required();
+		transactionPropagationExample.notransactionRequiredRequired();
 	}
 	
 	
@@ -87,7 +87,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testNotransaction_exception_required_required() {
-		transactionPropagationExample.notransaction_exception_required_required();
+		transactionPropagationExample.notransactionExceptionRequiredRequired();
 	}
 
 	/**
@@ -98,7 +98,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testNotransaction_required_required_exception() {
-		transactionPropagationExample.notransaction_required_required_exception();
+		transactionPropagationExample.notransactionRequiredRequiredException();
 	}
 
 	/**
@@ -108,7 +108,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_exception_required_required() {
-		transactionPropagationExample.transaction_exception_required_required();
+		transactionPropagationExample.transactionExceptionRequiredRequired();
 	}
 
 	/**
@@ -118,7 +118,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_required_required_exception() {
-		transactionPropagationExample.transaction_required_required_exception();
+		transactionPropagationExample.transactionRequiredRequiredException();
 	}
 	
 	
@@ -131,7 +131,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_required_required_exception_try() {
-		transactionPropagationExample.transaction_required_required_exception_try();
+		transactionPropagationExample.transactionRequiredRequiredExceptionTry();
 	}
 
 	/**
@@ -140,7 +140,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testNotransaction_supports_supports_exception() {
-		transactionPropagationExample.notransaction_supports_supports_exception();
+		transactionPropagationExample.notransactionSupportsSupportsException();
 	}
 
 	/**
@@ -149,7 +149,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testNotransaction_exception_supports_supports() {
-		transactionPropagationExample.notransaction_exception_supports_supports();
+		transactionPropagationExample.notransactionExceptionSupportsSupports();
 	}
 
 	/**
@@ -159,7 +159,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_supports_supports_exception() {
-		transactionPropagationExample.transaction_supports_supports_exception();
+		transactionPropagationExample.transactionSupportsSupportsException();
 	}
 
 	/**
@@ -169,7 +169,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_exception_supports_supports() {
-		transactionPropagationExample.transaction_exception_supports_supports();
+		transactionPropagationExample.transactionExceptionSupportsSupports();
 	}
 
 	// ---------------------------------------------------------------------------------
@@ -184,7 +184,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testNotransaction_exception_requiresNew_requiresNew() {
-		transactionPropagationExample.notransaction_exception_requiresNew_requiresNew();
+		transactionPropagationExample.notransactionExceptionRequiresNewRequiresNew();
 	}
 
 	/**
@@ -194,7 +194,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testNotransaction_requiresNew_requiresNew_exception() {
-		transactionPropagationExample.notransaction_requiresNew_requiresNew_exception();
+		transactionPropagationExample.notransactionRequiresNewRequiresNewException();
 	}
 
 	/**
@@ -204,7 +204,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_exception_required_requiresNew_requiresNew() {
-		transactionPropagationExample.transaction_exception_required_requiresNew_requiresNew();
+		transactionPropagationExample.transactionExceptionRequiredRequiresNewRequiresNew();
 	}
 
 	/**
@@ -214,7 +214,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_required_requiresNew_requiresNew_exception() {
-		transactionPropagationExample.transaction_required_requiresNew_requiresNew_exception();
+		transactionPropagationExample.transactionRequiredRequiresNewRequiresNewException();
 	}
 	
 	/**
@@ -224,7 +224,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_required_requiresNew_requiresNew_exception_try() {
-		transactionPropagationExample.transaction_required_requiresNew_requiresNew_exception_try();
+		transactionPropagationExample.transactionRequiredRequiresNewRequiresNewExceptionTry();
 	}
 
 	
@@ -242,7 +242,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testNotransaction_exception_required_notSuppored() {
-		transactionPropagationExample.notransaction_exception_required_notSuppored();
+		transactionPropagationExample.notransactionExceptionRequiredNotSuppored();
 	}
 
 	/**
@@ -254,7 +254,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testNotransaction_required_notSuppored_exception() {
-		transactionPropagationExample.notransaction_required_notSuppored_exception();
+		transactionPropagationExample.notransactionRequiredNotSupporedException();
 	}
 
 	/**
@@ -265,7 +265,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_exception_required_notSuppored() {
-		transactionPropagationExample.transaction_exception_required_notSuppored();
+		transactionPropagationExample.transactionExceptionRequiredNotSuppored();
 	}
 
 	/**
@@ -277,7 +277,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_required_notSuppored_exception() {
-		transactionPropagationExample.transaction_required_notSuppored_exception();
+		transactionPropagationExample.transactionRequiredNotSupporedException();
 	}
 
 	// ---------------------------------------------------------------------------------
@@ -292,7 +292,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testNotransaction_mandatory() {
-		transactionPropagationExample.notransaction_mandatory();
+		transactionPropagationExample.notransactionMandatory();
 	}
 
 	
@@ -303,7 +303,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_exception_mandatory_mandatory() {
-		transactionPropagationExample.transaction_exception_mandatory_mandatory();
+		transactionPropagationExample.transactionExceptionMandatoryMandatory();
 	}
 
 	/**
@@ -313,7 +313,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_mandatory_mandatory_exception() {
-		transactionPropagationExample.transaction_mandatory_mandatory_exception();
+		transactionPropagationExample.transactionMandatoryMandatoryException();
 	}
 	
 	
@@ -324,7 +324,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_never() {
-		transactionPropagationExample.transaction_never();
+		transactionPropagationExample.transactionNever();
 	}
 	
 	/**
@@ -334,7 +334,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testNotransaction_exception_never_never() {
-		transactionPropagationExample.notransaction_exception_never_never();
+		transactionPropagationExample.notransactionExceptionNeverNever();
 	}
 	/**
 	 * 结果：张三（插入），李四（插入）</br>
@@ -343,7 +343,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testNotransaction_never_never_exception() {
-		transactionPropagationExample.notransaction_never_never_exception();
+		transactionPropagationExample.notransactionNeverNeverException();
 	}
 	
 	
@@ -354,7 +354,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_exception_nested_nested() {
-		transactionPropagationExample.transaction_exception_nested_nested();
+		transactionPropagationExample.transactionExceptionNestedNested();
 	}
 	
 	
@@ -365,7 +365,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_nested_nested_exception() {
-		transactionPropagationExample.transaction_nested_nested_exception();
+		transactionPropagationExample.transactionNestedNestedException();
 	}
 	
 	/**
@@ -375,7 +375,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testNotransaction_exception_nested_nested() {
-		transactionPropagationExample.notransaction_exception_nested_nested();
+		transactionPropagationExample.notransactionExceptionNestedNested();
 	}
 	
 	
@@ -386,7 +386,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testnotransaction_nested_nested_exception() {
-		transactionPropagationExample.notransaction_nested_nested_exception();
+		transactionPropagationExample.notransactionNestedNestedException();
 	}
 	
 	//------------------------------------------
@@ -401,7 +401,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_nested_nested_exception_try() {
-		transactionPropagationExample.transaction_nested_nested_exception_try();
+		transactionPropagationExample.transactionNestedNestedExceptionTry();
 	}
 	
 	//------------------------------------------------------------------------------
@@ -424,7 +424,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testNotransaction_addRequired_getRequired_get() {
-		transactionPropagationExample.notransaction_addRequired_getRequired_get();
+		transactionPropagationExample.notransactionAddRequiredGetRequiredGet();
 	}
 	
 	
@@ -434,7 +434,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_addRequired_getRequired_get() {
-		transactionPropagationExample.transaction_addRequired_getRequired_get();
+		transactionPropagationExample.transactionAddRequiredGetRequiredGet();
 	}
 	
 	/**
@@ -443,7 +443,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_addRequired_getNested_get() {
-		transactionPropagationExample.transaction_addRequired_getNested_get();
+		transactionPropagationExample.transactionAddRequiredGetNestedGet();
 	}
 	
 	
@@ -454,7 +454,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_addRequired_getNotSuppored_get() {
-		transactionPropagationExample.transaction_addRequired_getNotSuppored_get();
+		transactionPropagationExample.transactionAddRequiredGetNotSupporedGet();
 	}
 	
 	
@@ -465,7 +465,7 @@ public class TransactionPropagationExampleImplTest {
 	 */
 	@Test
 	public void testTransaction_addRequired_getRequiresNew_get() {
-		transactionPropagationExample.transaction_addRequired_getRequiresNew_get();
+		transactionPropagationExample.transactionAddRequiredGetRequiresNewGet();
 	}
 	
 	//------------------------------------------------------------------------------

@@ -7,87 +7,200 @@ package com.dxj.skc.service;
  */
 public interface TransactionPropagationExample {
 
-    void notransaction_required_required();
+    /**
+     * 1
+     */
+    void notransactionRequiredRequired();
 
+    /**
+     * 2
+     */
     void truncated();
 
-    void notransaction_exception_required_required();
+    /**
+     * 3
+     */
+    void notransactionExceptionRequiredRequired();
 
-    void notransaction_required_required_exception();
+    /**
+     * 4
+     */
+    void notransactionRequiredRequiredException();
 
+    /**
+     * 5
+     */
+    void transactionExceptionRequiredRequired();
 
-    void transaction_exception_required_required();
+    /**
+     * 6
+     */
+    void transactionRequiredRequiredException();
 
-    void transaction_required_required_exception();
+    /**
+     * 7
+     */
+    void notransactionSupportsSupportsException();
 
-    void notransaction_supports_supports_exception();
+    /**
+     * 8
+     */
+    void transactionSupportsSupportsException();
 
-    void transaction_supports_supports_exception();
+    /**
+     * 9
+     */
+    void notransactionExceptionSupportsSupports();
 
-    void notransaction_exception_supports_supports();
+    /**
+     * 10
+     */
+    void transactionExceptionSupportsSupports();
 
-    void transaction_exception_supports_supports();
+    /**
+     * 11
+     */
+    void transactionExceptionRequiredRequiresNewRequiresNew();
 
-    void transaction_exception_required_requiresNew_requiresNew();
+    /**
+     * 12
+     */
+    void notransactionExceptionRequiresNewRequiresNew();
 
-    void notransaction_exception_requiresNew_requiresNew();
+    /**
+     * 13
+     */
+    void notransactionRequiresNewRequiresNewException();
 
-    void notransaction_requiresNew_requiresNew_exception();
+    /**
+     * 14
+     */
+    void transactionRequiredRequiresNewRequiresNewException();
 
-    void transaction_required_requiresNew_requiresNew_exception();
+    /**
+     * 15
+     */
+    void notransactionExceptionRequiredNotSuppored();
 
-    void notransaction_exception_required_notSuppored();
+    /**
+     * 16
+     */
+    void notransactionRequiredNotSupporedException();
 
-    void notransaction_required_notSuppored_exception();
+    /**
+     * 17
+     */
+    void transactionExceptionRequiredNotSuppored();
 
-    void transaction_exception_required_notSuppored();
+    /**
+     * 18
+     */
+    void transactionRequiredNotSupporedException();
 
-    void transaction_required_notSuppored_exception();
+    /**
+     * 19
+     */
+    void notransactionExceptionNotransactionNotransaction();
 
-    void notransaction_exception_notransaction_notransaction();
+    /**
+     * 20
+     */
+    void notransactionNotransactionNotransactionException();
 
-    void notransaction_notransaction_notransaction_exception();
+    /**
+     * 21
+     */
+    void transactionExceptionNotransactionNotransaction();
 
-    void transaction_exception_notransaction_notransaction();
+    /**
+     * 22
+     */
+    void transactionNotransactionNotransactionException();
 
-    void transaction_notransaction_notransaction_exception();
+    /**
+     * 23
+     */
+    void notransactionMandatory();
 
-    void notransaction_mandatory();
+    /**
+     * 24
+     */
+    void transactionExceptionMandatoryMandatory();
 
-    void transaction_exception_mandatory_mandatory();
+    /**
+     * 25
+     */
+    void transactionMandatoryMandatoryException();
 
-    void transaction_mandatory_mandatory_exception();
+    /**
+     * 26
+     */
+    void notransactionExceptionNeverNever();
 
-    void notransaction_exception_never_never();
+    /**
+     * 27
+     */
+    void notransactionNeverNeverException();
 
-    void notransaction_never_never_exception();
+    /**
+     * 28
+     */
+    void transactionNever();
 
-    void transaction_never();
+    /**
+     * 28
+     */
+    void transactionExceptionNestedNested();
 
-    void transaction_exception_nested_nested();
+    /**
+     * 28
+     */
+    void transactionNestedNestedException();
 
-    void transaction_nested_nested_exception();
+    /**
+     * 28
+     */
+    void transactionNestedNestedExceptionTry();
 
-    void transaction_nested_nested_exception_try();
-
-    void transaction_required_required_exception_try();
-
-    void transaction_noTransaction_noTransaction_exception_try();
-
-    void transaction_required_requiresNew_requiresNew_exception_try();
-
-    void notransaction_addRequired_getRequired_get();
-
-    void transaction_addRequired_getRequired_get();
-
-    void transaction_addRequired_getNested_get();
-
-    void transaction_addRequired_getNotSuppored_get();
-
-    void transaction_addRequired_getRequiresNew_get();
-
-    void notransaction_exception_nested_nested();
-
-    void notransaction_nested_nested_exception();
+    /**
+     * 28
+     */
+    void transactionRequiredRequiredExceptionTry();
+    /**
+     * 28
+     */
+    void transactionNoTransactionNoTransactionExceptionTry();
+    /**
+     * 28
+     */
+    void transactionRequiredRequiresNewRequiresNewExceptionTry();
+    /**
+     * 28
+     */
+    void notransactionAddRequiredGetRequiredGet();
+    /**
+     * 28
+     */
+    void transactionAddRequiredGetRequiredGet();
+    /**
+     * 28
+     */
+    void transactionAddRequiredGetNestedGet();
+    /**
+     * 28
+     */
+    void transactionAddRequiredGetNotSupporedGet();
+    /**
+     * 28
+     */
+    void transactionAddRequiredGetRequiresNewGet();
+    /**
+     * 28
+     */
+    void notransactionExceptionNestedNested();
+    /**
+     * 28
+     */
+    void notransactionNestedNestedException();
 
 }

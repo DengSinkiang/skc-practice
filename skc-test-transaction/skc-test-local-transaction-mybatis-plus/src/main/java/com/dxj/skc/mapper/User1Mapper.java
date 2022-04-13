@@ -10,5 +10,9 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface User1Mapper extends BaseMapper<User1> {
+    /**
+     * 111
+     * @return
+     */
     int truncated();
 }

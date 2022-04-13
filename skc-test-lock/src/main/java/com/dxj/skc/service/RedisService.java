@@ -243,6 +243,10 @@ public interface RedisService {
 
     /**
      * 获取List结构中的属性
+     * @param key
+     * @param start
+     * @param end
+     * @return
      */
     List<Object> lRange(String key, long start, long end);
 

@@ -8,6 +8,7 @@ import com.dtp.core.thread.DtpExecutor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -27,7 +28,9 @@ public class ThreadPoolConfiguration {
     @DynamicTp("commonExecutor")
     @Bean
     public ThreadPoolExecutor commonExecutor() {
-        return (ThreadPoolExecutor) Executors.newFixedThreadPool(1);
+        return new ThreadPoolExecutor(1, 1, 1,
+                TimeUnit.HOURS, new ArrayBlockingQueue<>(10),
+                Executors.defaultThreadFactory(), new ThreadPoolExecutor.DiscardPolicy());
     }
 
     /**

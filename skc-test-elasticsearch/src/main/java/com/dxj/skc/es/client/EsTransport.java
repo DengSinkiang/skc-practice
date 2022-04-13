@@ -12,6 +12,10 @@ import org.elasticsearch.client.RestClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+/**
+ * @author sinkiang
+ * @date 2022/4/7 10:32
+ */
 @Component
 public class EsTransport {
 

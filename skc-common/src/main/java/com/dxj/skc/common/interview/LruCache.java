@@ -7,7 +7,7 @@ import java.util.Map;
  * @author sinkiang
  * @date 2022/4/7 10:32
  */
-public class LRUCache<K, V> extends LinkedHashMap<K, V> {
+public class LruCache<K, V> extends LinkedHashMap<K, V> {
     private final int CACHE_SIZE;
 
     /**
@@ -15,7 +15,7 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> {
      *
      * @param cacheSize 缓存大小
      */
-    public LRUCache(int cacheSize) {
+    public LruCache(int cacheSize) {
         super((int) Math.ceil(cacheSize / 0.75) + 1, 0.75f, true);
         CACHE_SIZE = cacheSize;
     }

@@ -35,20 +35,24 @@ public class RedissonLockController {
         Thread.sleep(50);
         log.info("===lock===减完库存后,当前库存===" + TOTAL);
         //如果该线程还持有该锁，那么释放该锁。如果该线程不持有该锁，说明该线程的锁已到过期时间，自动释放锁
-        if (redissonLock.isHeldByCurrentThread("lock")) {
-            redissonLock.unlock("lock");
+        String lock = "lock";
+        if (redissonLock.isHeldByCurrentThread(lock)) {
+            redissonLock.unlock(lock);
         }
         return ResultUtils.success("减完库存后,当前库存为:" + TOTAL);
     }
 
     @GetMapping("trylock-decrease-stock")
     public ResultUtils<String> trylockDecreaseStock() throws InterruptedException {
-        if (redissonLock.tryLock("trylock", 5L, 200L)) {
+        String lockName = "trylock";
+        long leaseTime = 5L;
+        long waitTime = 200L;
+        if (redissonLock.tryLock(lockName, leaseTime, waitTime)) {
             if (TOTAL > 0) {
                 TOTAL--;
             }
             Thread.sleep(50);
-            redissonLock.unlock("trylock");
+            redissonLock.unlock(lockName);
             log.info("====tryLock=== 减完库存后,当前库存 ===" + TOTAL);
         } else {
             log.info("[ExecutorRedisson] 获取锁失败");

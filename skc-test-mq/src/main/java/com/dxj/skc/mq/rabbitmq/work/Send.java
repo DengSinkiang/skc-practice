@@ -20,7 +20,8 @@ public class Send {
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
         // 循环发布任务
         String message;
-        for (int i = 0; i < 50; i++) {
+        int temp = 50;
+        for (int i = 0; i < temp; i++) {
             // 消息内容
             message = "task .. " + i;
             channel.basicPublish("", QUEUE_NAME, null, message.getBytes());

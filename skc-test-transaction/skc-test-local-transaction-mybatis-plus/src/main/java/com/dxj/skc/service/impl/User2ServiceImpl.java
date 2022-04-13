@@ -19,6 +19,7 @@ public class User2ServiceImpl extends ServiceImpl<User2Mapper, User2> implements
     @Autowired
     private User2Mapper user2Mapper;
 
+    @Override
     public void truncated(){
         user2Mapper.truncated();
     }
@@ -40,38 +41,35 @@ public class User2ServiceImpl extends ServiceImpl<User2Mapper, User2> implements
     }
 
 
-    /* (non-Javadoc)
-     * @see org.transaction.test.local_transaction.mybatis.service.impl.User2Service#add(org.transaction.test.local_transaction.mybatis.bean.User2)
-     */
     @Override
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
     public void addRequired(User2 user) {
         user2Mapper.insert(user);
     }
 
 
     @Override
-    @Transactional(propagation = Propagation.REQUIRED, readOnly = true)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED, readOnly = true)
     public User2 getRequired(Integer id) {
         return user2Mapper.selectById(id);
     }
 
 
     @Override
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
     public void addRequiredException(User2 user) {
         user2Mapper.insert(user);
         throw new RuntimeException();
     }
 
     @Override
-    @Transactional(propagation = Propagation.SUPPORTS)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.SUPPORTS)
     public void addSupports(User2 user) {
         user2Mapper.insert(user);
     }
 
     @Override
-    @Transactional(propagation = Propagation.SUPPORTS)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.SUPPORTS)
     public void addSupportsException(User2 user) {
         user2Mapper.insert(user);
         throw new RuntimeException();
@@ -79,13 +77,13 @@ public class User2ServiceImpl extends ServiceImpl<User2Mapper, User2> implements
 
 
     @Override
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRES_NEW)
     public void addRequiresNew(User2 user) {
         user2Mapper.insert(user);
     }
 
     @Override
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRES_NEW)
     public void addRequiresNewException(User2 user) {
         user2Mapper.insert(user);
         throw new RuntimeException();
@@ -93,13 +91,13 @@ public class User2ServiceImpl extends ServiceImpl<User2Mapper, User2> implements
 
 
     @Override
-    @Transactional(propagation = Propagation.NOT_SUPPORTED)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.NOT_SUPPORTED)
     public void addNotSupported(User2 user) {
         user2Mapper.insert(user);
     }
 
     @Override
-    @Transactional(propagation = Propagation.NOT_SUPPORTED)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.NOT_SUPPORTED)
     public void addNotSupportedException(User2 user) {
         user2Mapper.insert(user);
         throw new RuntimeException();
@@ -107,39 +105,39 @@ public class User2ServiceImpl extends ServiceImpl<User2Mapper, User2> implements
 
 
     @Override
-    @Transactional(propagation = Propagation.MANDATORY)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.MANDATORY)
     public void addMandatory(User2 user) {
         user2Mapper.insert(user);
     }
 
     @Override
-    @Transactional(propagation = Propagation.MANDATORY)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.MANDATORY)
     public void addMandatoryException(User2 user) {
         user2Mapper.insert(user);
         throw new RuntimeException();
     }
 
     @Override
-    @Transactional(propagation = Propagation.NEVER)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.NEVER)
     public void addNever(User2 user) {
         user2Mapper.insert(user);
     }
 
     @Override
-    @Transactional(propagation = Propagation.NEVER)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.NEVER)
     public void addNeverException(User2 user) {
         user2Mapper.insert(user);
         throw new RuntimeException();
     }
 
     @Override
-    @Transactional(propagation = Propagation.NESTED)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.NESTED)
     public void addNested(User2 user) {
         user2Mapper.insert(user);
     }
 
     @Override
-    @Transactional(propagation = Propagation.NESTED)
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.NESTED)
     public void addNestedException(User2 user) {
         user2Mapper.insert(user);
         throw new RuntimeException();
