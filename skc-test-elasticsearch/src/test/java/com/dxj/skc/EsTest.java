@@ -1,7 +1,5 @@
 package com.dxj.skc;
 
-import co.elastic.clients.elasticsearch.ElasticsearchAsyncClient;
-import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import co.elastic.clients.elasticsearch._types.mapping.*;
 import co.elastic.clients.elasticsearch.core.*;
 import co.elastic.clients.elasticsearch.core.bulk.BulkOperation;
@@ -13,6 +11,7 @@ import com.dxj.skc.es.client.EsAsyncClient;
 import com.dxj.skc.es.client.EsClient;
 import com.dxj.skc.es.domain.Person;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
@@ -29,9 +28,10 @@ import java.util.concurrent.ExecutionException;
 @SpringBootTest(classes = ElasticsearchApplication.class)
 public class EsTest {
 
-    private final ElasticsearchClient client = EsClient.getClient();
-
-    private final ElasticsearchAsyncClient client2 = EsAsyncClient.getClient();
+    @Autowired
+    private EsClient esClient;
+    @Autowired
+    private EsAsyncClient esAsyncClient;
 
     private final static String INDEX_NAME = "es_person";
     private final static String ALIAS_INDEX_NAME = "alias_es_person";
@@ -61,7 +61,7 @@ public class EsTest {
                 .settings(indexSettings)
                 .build();
 
-        CreateIndexResponse createIndexResponse = client.indices().create(createIndexRequest);
+        CreateIndexResponse createIndexResponse = esClient.getClient().indices().create(createIndexRequest);
         System.out.println(createIndexResponse.acknowledged());
 
     }
@@ -70,7 +70,7 @@ public class EsTest {
     void getIndexWithMappingsAndSettings() throws IOException {
 
         GetIndexRequest getIndexRequest = new GetIndexRequest.Builder().index(INDEX_NAME).build();
-        GetIndexResponse getIndexResponse = client.indices().get(getIndexRequest);
+        GetIndexResponse getIndexResponse = esClient.getClient().indices().get(getIndexRequest);
         IndexState es_index_name = getIndexResponse.get(INDEX_NAME);
 
         System.out.println(JSON.toJSONString(es_index_name.mappings().properties()));
@@ -88,7 +88,7 @@ public class EsTest {
 
         List<String> indexList = Collections.singletonList(INDEX_NAME);
         DeleteIndexRequest deleteIndexRequest = new DeleteIndexRequest.Builder().index(indexList).build();
-        DeleteIndexResponse deleteIndexResponse = client.indices().delete(deleteIndexRequest);
+        DeleteIndexResponse deleteIndexResponse = esClient.getClient().indices().delete(deleteIndexRequest);
         System.out.println(deleteIndexResponse.acknowledged());
 
     }
@@ -97,7 +97,7 @@ public class EsTest {
     void getESDataByIndexAndIdTest() throws Exception {
 
         GetRequest getRequest = new GetRequest.Builder().index(INDEX_NAME).id("1").build();
-        GetResponse<Person> personGetResponse = client.get(getRequest, Person.class);
+        GetResponse<Person> personGetResponse = esClient.getClient().get(getRequest, Person.class);
         Person person = personGetResponse.source();
 
         System.out.println(person);
@@ -107,7 +107,7 @@ public class EsTest {
     void existsDocument() throws IOException {
 
         GetRequest getRequest = new GetRequest.Builder().index(INDEX_NAME).id("4").build();
-        GetResponse<Person> personGetResponse = client.get(getRequest, Person.class);
+        GetResponse<Person> personGetResponse = esClient.getClient().get(getRequest, Person.class);
 
         System.out.println(personGetResponse.source());
         System.out.println(personGetResponse.found());
@@ -126,7 +126,7 @@ public class EsTest {
             person.setBirthday(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(LocalDateTime.now()));
             IndexRequest<Person> personIndexRequest = new IndexRequest.Builder<Person>()
                     .index(INDEX_NAME).document(person).build();
-            IndexResponse indexResponse = client.index(personIndexRequest);
+            IndexResponse indexResponse = esClient.getClient().index(personIndexRequest);
 
 
             // 结果成功为：Created
@@ -168,7 +168,7 @@ public class EsTest {
         }
 
         BulkRequest bulkRequest = new BulkRequest.Builder().index(INDEX_NAME).operations(list).build();
-        CompletableFuture<BulkResponse> bulk = client2.bulk(bulkRequest);
+        CompletableFuture<BulkResponse> bulk = esAsyncClient.getClient().bulk(bulkRequest);
         System.out.println(bulk.get().errors());
     }
 
@@ -183,7 +183,7 @@ public class EsTest {
         UpdateRequest<Person, Person> personPersonUpdateRequest = new UpdateRequest.Builder<Person, Person>()
                 .index(INDEX_NAME).id("1").doc(person).build();
 
-        UpdateResponse<Person> personUpdateResponse = client.update(personPersonUpdateRequest, Person.class);
+        UpdateResponse<Person> personUpdateResponse = esClient.getClient().update(personPersonUpdateRequest, Person.class);
 
         //结果成功为：Updated
         System.out.println(personUpdateResponse.result());
@@ -193,7 +193,7 @@ public class EsTest {
     void getDocumentById() throws IOException {
 
         GetRequest getRequest = new GetRequest.Builder().index(INDEX_NAME).id("1").build();
-        GetResponse<Person> personGetResponse = client.get(getRequest, Person.class);
+        GetResponse<Person> personGetResponse = esClient.getClient().get(getRequest, Person.class);
 
         System.out.println(JSON.toJSONString(personGetResponse.source()));
         System.out.println(personGetResponse.id());
@@ -203,7 +203,7 @@ public class EsTest {
     void search() throws IOException {
 
         SearchRequest searchRequest = new SearchRequest.Builder().index(INDEX_NAME).build();
-        SearchResponse<Person> personSearchResponse = client.search(searchRequest, Person.class);
+        SearchResponse<Person> personSearchResponse = esClient.getClient().search(searchRequest, Person.class);
         List<Hit<Person>> hits = personSearchResponse.hits().hits();
         hits.forEach(hit -> {
             System.out.println(JSON.toJSONString(hit.source()));
@@ -213,7 +213,7 @@ public class EsTest {
     @Test
     void searchByPages() throws IOException {
         SearchRequest searchRequest = new SearchRequest.Builder().index(INDEX_NAME).from(0).size(10).build();
-        SearchResponse<Person> personSearchResponse = client.search(searchRequest, Person.class);
+        SearchResponse<Person> personSearchResponse = esClient.getClient().search(searchRequest, Person.class);
         List<Hit<Person>> hits = personSearchResponse.hits().hits();
         hits.forEach(hit -> {
             System.out.println(JSON.toJSONString(hit.source()));

@@ -1,28 +1,23 @@
 package com.dxj.skc.es.client;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import org.springframework.stereotype.Component;
 
 /**
  * @author sinkiang
  * @date 2022/4/7 10:32
  */
+@Component
 public class EsClient {
 
-    private volatile static ElasticsearchClient client;
+    private final EsTransport esTransport;
 
-    private EsClient() {
-
+    public EsClient(EsTransport esTransport) {
+        this.esTransport = esTransport;
     }
-    public static ElasticsearchClient getClient() {
-        if (client == null) {
-            synchronized (ElasticsearchClient.class) {
-                if (client == null) {
-                    // And create the API client
-                    client = new ElasticsearchClient(EsTransport.getTransport());
-                }
-            }
-        }
-        return client;
+
+    public ElasticsearchClient getClient() {
+        return new ElasticsearchClient(esTransport.getTransport());
     }
 
 }

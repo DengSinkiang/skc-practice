@@ -46,6 +46,13 @@ spring:
         url-pattern: /*
         exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
 
+# es
+es:
+  host: es-cn-n6w1x3wcn0001g44c.elasticsearch.aliyuncs.com
+  port: 9200
+  username: elastic
+  password: CRWqZhU6
+
 # 配置日志
 logging:
   file:

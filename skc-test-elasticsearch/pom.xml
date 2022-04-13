@@ -17,25 +17,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.dxj</groupId>
-            <artifactId>skc-common</artifactId>
-            <version>2.0.0</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>jackson-databind</artifactId>
-                    <groupId>com.fasterxml.jackson.core</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>guava</artifactId>
-                    <groupId>com.google.guava</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>jakarta.json-api</artifactId>
-                    <groupId>jakarta.json</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
         <!-- elasticsearch -->
         <dependency>
             <groupId>co.elastic.clients</groupId>
