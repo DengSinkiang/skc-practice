@@ -1,12 +1,18 @@
 package com.dxj.skc;
 
+import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import co.elastic.clients.elasticsearch._types.FieldSort;
+import co.elastic.clients.elasticsearch._types.SortOptions;
+import co.elastic.clients.elasticsearch._types.SortOrder;
 import co.elastic.clients.elasticsearch._types.Time;
 import co.elastic.clients.elasticsearch._types.mapping.*;
+import co.elastic.clients.elasticsearch._types.query_dsl.*;
 import co.elastic.clients.elasticsearch.core.*;
 import co.elastic.clients.elasticsearch.core.bulk.BulkOperation;
 import co.elastic.clients.elasticsearch.core.bulk.CreateOperation;
 import co.elastic.clients.elasticsearch.core.search.Hit;
 import co.elastic.clients.elasticsearch.indices.*;
+import co.elastic.clients.json.JsonData;
 import com.alibaba.fastjson.JSON;
 import com.dxj.skc.es.client.EsAsyncClient;
 import com.dxj.skc.es.client.EsClient;
@@ -116,6 +122,7 @@ public class EsTest {
 
     @Test
     void saveDocument() throws IOException {
+        ElasticsearchClient client = esClient.getClient();
 
         for (int i = 1; i <= 1000; i++) {
             Person person = new Person();
@@ -127,7 +134,7 @@ public class EsTest {
             person.setBirthday(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(LocalDateTime.now()));
             IndexRequest<Person> personIndexRequest = new IndexRequest.Builder<Person>()
                     .index(INDEX_NAME).document(person).build();
-            IndexResponse indexResponse = esClient.getClient().index(personIndexRequest);
+            IndexResponse indexResponse = client.index(personIndexRequest);
 
 
             // 结果成功为：Created
@@ -216,7 +223,7 @@ public class EsTest {
         List<Person> list = new ArrayList<>();
         SearchRequest searchRequest = new SearchRequest.Builder().index(INDEX_NAME)
                 .scroll(new Time.Builder().time("2m").build())
-                .size(10000)
+                .size(100)
                 .build();
         SearchResponse<Person> personSearchResponse = esClient.getClient().search(searchRequest, Person.class);
         personSearchResponse.hits().hits().forEach(personHit -> {
@@ -236,7 +243,18 @@ public class EsTest {
 
     @Test
     void searchByPages() throws IOException {
-        SearchRequest searchRequest = new SearchRequest.Builder().index(INDEX_NAME).from(0).size(10).build();
+        SearchRequest searchRequest = new SearchRequest.Builder().index(INDEX_NAME)
+                .query(new Query.Builder()
+                        .bool(new BoolQuery.Builder()
+                                .must(new Query.Builder()
+                                        .range(new RangeQuery.Builder().field("birthday").gte(JsonData.of("2022-04-13 19:30:48")).lte(JsonData.of("2022-04-13 19:33:48"))
+                                                .build()).build(), new Query.Builder().prefix(new PrefixQuery.Builder().field("name").value("张三")
+                                        .build()).build(), new Query.Builder().ids(new IdsQuery.Builder().values("sXyxIoABVRsjH5c9H4ay", "sHyxIoABVRsjH5c9H4Zd")
+                                        .build()).build())
+                                .build())
+                        .build())
+                .sort(new SortOptions.Builder().field(new FieldSort.Builder().field("age").order(SortOrder.Desc).build()).build())
+                .from(0).size(10).build();
         SearchResponse<Person> personSearchResponse = esClient.getClient().search(searchRequest, Person.class);
         List<Hit<Person>> hits = personSearchResponse.hits().hits();
         hits.forEach(hit -> {
