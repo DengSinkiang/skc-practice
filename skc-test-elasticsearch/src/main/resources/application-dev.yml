@@ -48,10 +48,10 @@ spring:
 
 # es
 es:
-  host: es-cn-n6w1x3wcn0001g44c.elasticsearch.aliyuncs.com
+  host: localhost
   port: 9200
   username: elastic
-  password: CRWqZhU6
+  password: 123456
 
 # 配置日志
 logging:
