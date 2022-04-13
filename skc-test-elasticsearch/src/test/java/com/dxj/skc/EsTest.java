@@ -1,5 +1,6 @@
 package com.dxj.skc;
 
+import co.elastic.clients.elasticsearch._types.Time;
 import co.elastic.clients.elasticsearch._types.mapping.*;
 import co.elastic.clients.elasticsearch.core.*;
 import co.elastic.clients.elasticsearch.core.bulk.BulkOperation;
@@ -208,6 +209,29 @@ public class EsTest {
         hits.forEach(hit -> {
             System.out.println(JSON.toJSONString(hit.source()));
         });
+    }
+
+    @Test
+    void scroll() throws IOException {
+        List<Person> list = new ArrayList<>();
+        SearchRequest searchRequest = new SearchRequest.Builder().index(INDEX_NAME)
+                .scroll(new Time.Builder().time("2d").build())
+                .size(10000)
+                .build();
+        SearchResponse<Person> personSearchResponse = esClient.getClient().search(searchRequest, Person.class);
+        personSearchResponse.hits().hits().forEach(personHit -> {
+            list.add(personHit.source());
+        });
+        String scrollId = personSearchResponse.scrollId();
+        ScrollResponse<Person> scroll = esClient.getClient().scroll(new ScrollRequest.Builder().scrollId(scrollId).build(), Person.class);
+        List<Hit<Person>> hits = scroll.hits().hits();
+        hits.forEach(personHit -> {
+            list.add(personHit.source());
+        });
+        // 清除 scroll
+        ClearScrollResponse clearScrollResponse = esClient.getClient().clearScroll(new ClearScrollRequest.Builder().scrollId(scrollId).build());
+        System.out.println(clearScrollResponse.succeeded());
+        System.out.println(list.size());
     }
 
     @Test
