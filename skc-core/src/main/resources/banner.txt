@@ -7,7 +7,7 @@ ${AnsiColor.BRIGHT_RED}
 (___/|_| \_)____)   | ||_/|_|   \_||_|\____)\___)_|\____)____)
                     |_|
 ${AnsiColor.BRIGHT_MAGENTA}
-Application Name: ${application.title}
+Application Name: ${spring.application.name}
 Application Version: ${application.version}
 Spring Boot Version: ${spring-boot.version}
 ${AnsiColor.BLACK}

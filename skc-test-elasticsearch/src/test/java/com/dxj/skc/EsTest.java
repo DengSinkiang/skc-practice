@@ -258,7 +258,7 @@ public class EsTest {
         queryList.add(new Query.Builder().prefix(new PrefixQuery.Builder().field("name").value("张三").build()).build());
         queryList.add(new Query.Builder().ids(new IdsQuery.Builder().values("sXyxIoABVRsjH5c9H4ay", "sHyxIoABVRsjH5c9H4Zd")
                 .build()).build());
-        queryList.add(new Query.Builder().match(new MatchQuery.Builder().field("name").query("邓新疆").build()).build());
+        queryList.add(new Query.Builder().term(new TermQuery.Builder().field("name").value("邓新疆").build()).build());
 
         SearchRequest searchRequest = new SearchRequest.Builder().index(INDEX_NAME)
                 .query(new Query.Builder().bool(new BoolQuery.Builder().must(queryList).build()).build())
