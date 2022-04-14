@@ -243,16 +243,25 @@ public class EsTest {
 
     @Test
     void searchByPages() throws IOException {
+        List<Query> queryList = new ArrayList<>();
+        List<Query> queryShouldList = new ArrayList<>();
+        List<Integer> ages = Arrays.asList(20, 21, 22);
+        for (Integer age : ages) {
+            queryShouldList.add(new Query.Builder().match(new MatchQuery.Builder().field("age").query(age).build()).build());
+        }
+        queryList.add(new Query.Builder().bool(new BoolQuery.Builder()
+                .should(queryShouldList)
+                .build()).build());
+        queryList.add(new Query.Builder()
+                .range(new RangeQuery.Builder().field("birthday").gte(JsonData.of("2022-04-13 19:30:48"))
+                        .lte(JsonData.of("2022-04-13 19:33:48")).build()).build());
+        queryList.add(new Query.Builder().prefix(new PrefixQuery.Builder().field("name").value("张三").build()).build());
+        queryList.add(new Query.Builder().ids(new IdsQuery.Builder().values("sXyxIoABVRsjH5c9H4ay", "sHyxIoABVRsjH5c9H4Zd")
+                .build()).build());
+        queryList.add(new Query.Builder().match(new MatchQuery.Builder().field("name").query("邓新疆").build()).build());
+
         SearchRequest searchRequest = new SearchRequest.Builder().index(INDEX_NAME)
-                .query(new Query.Builder()
-                        .bool(new BoolQuery.Builder()
-                                .must(new Query.Builder()
-                                        .range(new RangeQuery.Builder().field("birthday").gte(JsonData.of("2022-04-13 19:30:48")).lte(JsonData.of("2022-04-13 19:33:48"))
-                                                .build()).build(), new Query.Builder().prefix(new PrefixQuery.Builder().field("name").value("张三")
-                                        .build()).build(), new Query.Builder().ids(new IdsQuery.Builder().values("sXyxIoABVRsjH5c9H4ay", "sHyxIoABVRsjH5c9H4Zd")
-                                        .build()).build())
-                                .build())
-                        .build())
+                .query(new Query.Builder().bool(new BoolQuery.Builder().must(queryList).build()).build())
                 .sort(new SortOptions.Builder().field(new FieldSort.Builder().field("age").order(SortOrder.Desc).build()).build())
                 .from(0).size(10).build();
         SearchResponse<Person> personSearchResponse = esClient.getClient().search(searchRequest, Person.class);
