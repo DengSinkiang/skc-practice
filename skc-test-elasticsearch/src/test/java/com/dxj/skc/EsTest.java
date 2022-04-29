@@ -52,12 +52,12 @@ public class EsTest {
     void createIndex() throws IOException {
 
         Map<String, Property> propertyMap = new HashMap<>();
-        propertyMap.put("name", new Property(new TextProperty.Builder().index(true).store(true).build()));
-        propertyMap.put("nickname", new Property(new TextProperty.Builder().index(true).store(true).build()));
-        propertyMap.put("age", new Property(new IntegerNumberProperty.Builder().index(true).build()));
-        propertyMap.put("sex", new Property(new BooleanProperty.Builder().index(true).build()));
-        propertyMap.put("birthday", new Property(new DateProperty.Builder().format("yyyy-MM-dd HH:mm:ss").index(true).build()));
-        propertyMap.put("email", new Property(new KeywordProperty.Builder().index(true).build()));
+        propertyMap.put("name", new Property(PropertyBuilders.text().index(true).store(true).build()));
+        propertyMap.put("nickname", new Property(PropertyBuilders.text().index(true).store(true).build()));
+        propertyMap.put("age", new Property(PropertyBuilders.integer().index(true).build()));
+        propertyMap.put("sex", new Property(PropertyBuilders.boolean_().index(true).build()));
+        propertyMap.put("birthday", new Property(PropertyBuilders.date().format("yyyy-MM-dd HH:mm:ss").index(true).build()));
+        propertyMap.put("email", new Property(PropertyBuilders.keyword().index(true).build()));
 
         TypeMapping typeMapping = new TypeMapping.Builder().properties(propertyMap).build();
         IndexSettings indexSettings = new IndexSettings.Builder().numberOfShards(String.valueOf(1)).numberOfReplicas(String.valueOf(0)).build();
