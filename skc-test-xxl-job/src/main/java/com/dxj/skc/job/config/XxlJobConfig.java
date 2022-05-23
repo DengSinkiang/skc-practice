@@ -1,4 +1,4 @@
-package skc.job.config;
+package com.dxj.skc.job.config;
 
 import com.xxl.job.core.executor.impl.XxlJobSpringExecutor;
 import org.slf4j.Logger;

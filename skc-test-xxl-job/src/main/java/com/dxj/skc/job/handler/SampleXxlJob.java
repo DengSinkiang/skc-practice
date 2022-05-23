@@ -1,4 +1,4 @@
-package skc.job.handler;
+package com.dxj.skc.job.handler;
 
 import com.xxl.job.core.context.XxlJobHelper;
 import com.xxl.job.core.handler.annotation.XxlJob;
