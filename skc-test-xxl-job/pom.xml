@@ -10,7 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>skc-test-xxl-job</artifactId>
-    <packaging>pom</packaging>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -25,5 +24,4 @@
             <version>${xxl-job.version}</version>
         </dependency>
     </dependencies>
-
 </project>

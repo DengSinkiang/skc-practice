@@ -1,4 +1,4 @@
-package com.dxj.skc2.domain;
+package com.dxj.skc2.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

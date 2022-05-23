@@ -39,7 +39,3 @@ spring:
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
 
-# 配置日志
-logging:
-  file:
-    path: logs

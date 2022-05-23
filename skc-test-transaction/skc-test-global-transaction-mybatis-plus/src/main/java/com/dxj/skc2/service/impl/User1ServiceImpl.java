@@ -1,7 +1,7 @@
 package com.dxj.skc2.service.impl;
 
 import com.baomidou.dynamic.datasource.annotation.DS;
-import com.dxj.skc2.domain.User1;
+import com.dxj.skc2.entity.User1;
 import com.dxj.skc2.mapper.User1Mapper;
 import com.dxj.skc2.service.User1Service;
 import org.springframework.beans.factory.annotation.Autowired;

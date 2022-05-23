@@ -7,3 +7,7 @@ spring:
   jpa:
     open-in-view: true
 
+# 配置日志
+logging:
+  file:
+    path: logs

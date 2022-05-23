@@ -1,7 +1,7 @@
 package com.dxj.skc.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.dxj.skc.domain.User1;
+import com.dxj.skc.entity.User1;
 import com.dxj.skc.mapper.User1Mapper;
 import com.dxj.skc.service.User1Service;
 import org.springframework.beans.factory.annotation.Autowired;

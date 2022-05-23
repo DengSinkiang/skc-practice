@@ -1,6 +1,6 @@
 package com.dxj.skc2;
 
-import com.dxj.skc2.domain.User1;
+import com.dxj.skc2.entity.User1;
 import com.dxj.skc2.service.User1Service;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

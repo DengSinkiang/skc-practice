@@ -1,7 +1,7 @@
 package com.dxj.skc.service.impl;
 
-import com.dxj.skc.domain.User1;
-import com.dxj.skc.domain.User2;
+import com.dxj.skc.entity.User1;
+import com.dxj.skc.entity.User2;
 import com.dxj.skc.service.TransactionPropagationExample;
 import com.dxj.skc.service.User1Service;
 import com.dxj.skc.service.User2Service;

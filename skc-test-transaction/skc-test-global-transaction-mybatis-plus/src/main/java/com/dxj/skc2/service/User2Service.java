@@ -1,6 +1,6 @@
 package com.dxj.skc2.service;
 
-import com.dxj.skc2.domain.User2;
+import com.dxj.skc2.entity.User2;
 
 /**
  * @author sinkiang

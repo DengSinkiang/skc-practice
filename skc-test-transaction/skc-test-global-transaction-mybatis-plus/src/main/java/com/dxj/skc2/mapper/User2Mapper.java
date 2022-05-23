@@ -1,7 +1,7 @@
 package com.dxj.skc2.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.dxj.skc2.domain.User2;
+import com.dxj.skc2.entity.User2;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
