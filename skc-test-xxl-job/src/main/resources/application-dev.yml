@@ -1,0 +1,65 @@
+# 配置数据源
+spring:
+  datasource:
+    druid:
+      db-type: com.alibaba.druid.pool.DruidDataSource
+      driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+      url: jdbc:log4jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false
+      username: root
+      password:
+
+      # 初始化配置
+      initial-size: 3
+      # 最小连接数
+      min-idle: 3
+      # 最大连接数
+      max-active: 15
+      # 获取连接超时时间
+      max-wait: 5000
+      # 连接有效性检测时间
+      time-between-eviction-runs-millis: 90000
+      # 最大空闲时间
+      min-evictable-idle-time-millis: 1800000
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+
+      validation-query: select 1
+      # 配置监控统计拦截的filters
+      filters: stat
+      stat-view-servlet:
+        url-pattern: /druid/*
+        reset-enable: false
+
+      web-stat-filter:
+        url-pattern: /*
+        exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+
+xxl:
+  job:
+    admin:
+      # 调度中心部署跟地址 [选填]：如调度中心集群部署存在多个地址则用逗号分隔。
+      # 执行器将会使用该地址进行"执行器心跳注册"和"任务结果回调"；为空则关闭自动注册；
+      addresses: http://127.0.0.1:8086/xxl-job-admin
+    # 执行器通讯TOKEN [选填]：非空时启用；
+    accessToken:
+    executor:
+      # 执行器AppName [选填]：执行器心跳注册分组依据；为空则关闭自动注册
+      appname: xxl-job-executor-skc
+      # 执行器注册 [选填]：优先使用该配置作为注册地址，为空时使用内嵌服务 ”IP:PORT“ 作为注册地址。
+      #从而更灵活的支持容器类型执行器动态IP和动态映射端口问题。
+      address:
+      # 执行器IP [选填]：默认为空表示自动获取IP，多网卡时可手动设置指定IP，该IP不会绑定Host仅作为通讯实用；
+      # 地址信息用于 "执行器注册" 和 "调度中心请求并触发任务"；
+      ip:
+      # 执行器端口号 [选填]：小于等于0则自动获取；默认端口为9999，单机部署多个执行器时，注意要配置不同执行器端口；
+      port: 8088
+      # 执行器运行日志文件存储磁盘路径 [选填] ：需要对该路径拥有读写权限；为空则使用默认路径；
+      logpath: /data/applogs/xxl-job/jobhandler
+      # 执行器日志文件保存天数 [选填] ： 过期日志自动清理, 限制值大于等于3时生效; 否则, 如-1, 关闭自动清理功能；
+      logretentiondays: 30
+
+# 配置日志
+logging:
+  file:
+    path: logs

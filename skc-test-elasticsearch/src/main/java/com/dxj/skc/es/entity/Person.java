@@ -1,4 +1,4 @@
-package com.dxj.skc.es.domain;
+package com.dxj.skc.es.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,16 +1,5 @@
 # 配置数据源
 spring:
-  flyway: # flyway 数据库 DDL 版本控制
-    enabled: true # 正式环境才开启
-    clean-disabled: true # 禁用数据库清理
-    encoding: UTF-8
-    locations: classpath:/db
-    #  flyway 会在库中创建此名称元数据表，用于记录所有版本演化和状态,同一个库不同项目可能冲突，每个项目一张表来记录
-    table: flyway_schema_history_skc-practice #TODO 值的后缀指定为当前项目名称
-    baseline-version: 1 # 基线版本默认开始序号 默认为 1
-    baseline-on-migrate: true #  针对非空数据库是否默认调用基线版本,为空的话默认会调用基线版本
-    placeholders: # 定义 afterMigrateError.sql 要清理的元数据表表名
-      flyway-table: ${spring.flyway.table}
   datasource:
     druid:
       db-type: com.alibaba.druid.pool.DruidDataSource

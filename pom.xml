@@ -16,6 +16,7 @@
         <module>skc-test-limit</module>
         <module>skc-test-mq</module>
         <module>skc-test-apollo</module>
+        <module>skc-test-xxl-job</module>
     </modules>
     <packaging>pom</packaging>
     <name>skc-practice</name>
@@ -38,7 +39,6 @@
         <elasticsearch.version>7.17.2</elasticsearch.version>
         <pool.version>2.11.1</pool.version>
         <mybatis.version>3.5.1</mybatis.version>
-        <flyway.version>5.2.4</flyway.version>
         <codec.version>1.15</codec.version>
         <gson.version>2.9.0</gson.version>
         <fastjson.version>1.2.80</fastjson.version>
@@ -178,12 +178,6 @@
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct-processor</artifactId>
             <version>${mapstruct.version}</version>
-        </dependency>
-        <!-- flyway-core -->
-        <dependency>
-            <groupId>org.flywaydb</groupId>
-            <artifactId>flyway-core</artifactId>
-            <version>${flyway.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>

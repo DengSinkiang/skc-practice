@@ -1,9 +1,8 @@
 server:
-  port: 10088
+  port: 10094
 
 spring:
   profiles:
     active: dev
   jpa:
     open-in-view: true
-

@@ -16,7 +16,7 @@ import co.elastic.clients.json.JsonData;
 import com.alibaba.fastjson.JSON;
 import com.dxj.skc.es.client.EsAsyncClient;
 import com.dxj.skc.es.client.EsClient;
-import com.dxj.skc.es.domain.Person;
+import com.dxj.skc.es.entity.Person;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
