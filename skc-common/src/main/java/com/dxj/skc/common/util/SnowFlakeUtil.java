@@ -64,7 +64,7 @@ public class SnowFlakeUtil {
         return timestamp - epoch << timestampLeftShift | id << sequenceBits | sequence;
     }
 
-    private static SnowFlakeUtil flowIdWorker = new SnowFlakeUtil(1);
+    private static final SnowFlakeUtil flowIdWorker = new SnowFlakeUtil(1);
 
     public static SnowFlakeUtil getFlowIdInstance() {
         return flowIdWorker;

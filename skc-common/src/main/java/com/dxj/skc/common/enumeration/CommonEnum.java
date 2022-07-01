@@ -31,8 +31,8 @@ public enum CommonEnum {
         this.value = value;
     }
 
-    private int key;
-    private String value;
+    private final int key;
+    private final String value;
 
     public int getKey() {
         return key;
