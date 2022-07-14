@@ -12,9 +12,14 @@ import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author sinkiang
@@ -25,6 +30,9 @@ public class SkcTest {
 
     @Autowired
     private UserService userService;
+    @Resource
+    private ThreadPoolTaskExecutor asyncTaskExecutor;
+
     @Test
     void testLoad() {
         System.out.println("hello skc");
@@ -75,5 +83,51 @@ public class SkcTest {
         user.setEmail("123456@qq.com");
         UserDTO userDTO = Mappers.getMapper(UserMapper.class).userToUserDTO(user);
         System.out.println(userDTO);
+    }
+    @Test
+    public void test() {
+        CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> {
+            int result = 100;
+            System.out.println("第一次运算：" + result);
+            return result;
+        }, asyncTaskExecutor).thenApply(number -> {
+            int result = number * 3;
+            System.out.println("第二次运算：" + result);
+            return result;
+        });
+
+        CompletableFuture<Integer> future1 = CompletableFuture
+                .supplyAsync(() -> {
+                    int number = new Random().nextInt(10);
+                    System.out.println("任务1结果：" + number);
+                    return number;
+                }, asyncTaskExecutor);
+        CompletableFuture<Integer> future2 = CompletableFuture
+                .supplyAsync(() -> {
+                    int number = new Random().nextInt(10);
+                    System.out.println("任务2结果：" + number);
+                    return number;
+                }, asyncTaskExecutor);
+        CompletableFuture<Integer> result = future1
+                .thenCombine(future2, Integer::sum);
+        System.out.println("组合后结果：" + result.join());
+
+        CompletableFuture<String> future11 = CompletableFuture.supplyAsync(() -> {
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("future11完成");
+            return "future11完成";
+        }, asyncTaskExecutor);
+
+        CompletableFuture<String> future22 = CompletableFuture.supplyAsync(() -> {
+            System.out.println("future22完成");
+            return "future22完成";
+        }, asyncTaskExecutor);
+
+        CompletableFuture<Void> combindFuture = CompletableFuture.allOf(future11, future22);
+        combindFuture.join();
     }
 }
