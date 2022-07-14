@@ -13,6 +13,8 @@ import java.util.concurrent.ThreadPoolExecutor;
 @Configuration
 public class AsyncTaskExecutorConfig {
 
+    // 线程前缀
+    private static final String threadNamePrefix = "asyncTaskExecutor-";
     // 阻塞队列
     private static final int workQueue = 20;
     // 线程空闲后的存活时长
@@ -27,7 +29,7 @@ public class AsyncTaskExecutorConfig {
     public ThreadPoolTaskExecutor asyncTaskExecutor() {
         ThreadPoolTaskExecutor threadPoolTaskExecutor = new ThreadPoolTaskExecutor();
         // 线程前缀
-        threadPoolTaskExecutor.setThreadNamePrefix("asyncTaskExecutor-");
+        threadPoolTaskExecutor.setThreadNamePrefix(threadNamePrefix);
         // 核心线程数
         threadPoolTaskExecutor.setCorePoolSize(corePoolSize);
         // 最大线程数
