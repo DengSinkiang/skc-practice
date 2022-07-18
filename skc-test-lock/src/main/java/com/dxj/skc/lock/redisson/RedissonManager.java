@@ -87,7 +87,7 @@ public class RedissonManager {
             } else if (connectionType.equals(RedisDeployTypeEnum.MASTERSLAVE.getConnectionType())) {
                 redissonConfigService = new MasterslaveConfigImpl();
             } else {
-                throw new IllegalArgumentException("创建Redisson连接Config失败！当前连接方式:" + connectionType);
+                throw new IllegalArgumentException("创建 Redisson 连接 Config 失败!当前连接方式:" + connectionType);
             }
             return redissonConfigService.createRedissonConfig(redissonProperties);
         }

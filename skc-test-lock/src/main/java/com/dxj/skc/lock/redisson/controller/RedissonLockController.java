@@ -42,9 +42,9 @@ public class RedissonLockController {
         return ResultUtils.success("减完库存后,当前库存为:" + TOTAL);
     }
 
-    @GetMapping("trylock-decrease-stock")
-    public ResultUtils<String> trylockDecreaseStock() throws InterruptedException {
-        String lockName = "trylock";
+    @GetMapping("tryLock-decrease-stock")
+    public ResultUtils<String> tryLockDecreaseStock() throws InterruptedException {
+        String lockName = "tryLock";
         long leaseTime = 5L;
         long waitTime = 200L;
         if (redissonLock.tryLock(lockName, leaseTime, waitTime)) {

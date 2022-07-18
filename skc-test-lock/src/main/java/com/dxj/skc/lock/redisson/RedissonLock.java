@@ -28,7 +28,7 @@ public class RedissonLock {
     }
 
     /**
-     * 加锁操作 (设置锁的有效时间)
+     * 加锁操作(设置锁的有效时间)
      *
      * @param lockName  锁名称
      * @param leaseTime 锁有效时间
@@ -39,7 +39,7 @@ public class RedissonLock {
     }
 
     /**
-     * 加锁操作 (锁有效时间采用默认时间 30 秒）
+     * 加锁操作(锁有效时间采用默认时间 30 秒)
      *
      * @param lockName 锁名称
      */
@@ -49,7 +49,7 @@ public class RedissonLock {
     }
 
     /**
-     * 加锁操作 (tryLock 锁，没有等待时间）
+     * 加锁操作(tryLock 锁没有有效时间)
      *
      * @param lockName  锁名称
      * @param waitTime 锁等待时间
@@ -61,7 +61,7 @@ public class RedissonLock {
         try {
             getLock = rLock.tryLock(waitTime, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
-            log.error("获取 Redisson 分布式锁 [异常], lockName=" + lockName, e);
+            log.error("获取 Redisson 分布式锁[异常],lockName=" + lockName, e);
             e.printStackTrace();
             return false;
         }
@@ -69,7 +69,7 @@ public class RedissonLock {
     }
 
     /**
-     * 加锁操作(tryLock锁，有等待时间）
+     * 加锁操作(tryLock 锁有等待时间)
      *
      * @param lockName  锁名称
      * @param waitTime  等待时间
@@ -82,7 +82,7 @@ public class RedissonLock {
         try {
             getLock = rLock.tryLock(waitTime, leaseTime, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
-            log.error("获取 Redisson 分布式锁 [异常], lockName=" + lockName, e);
+            log.error("获取 Redisson 分布式锁[异常],lockName=" + lockName, e);
             e.printStackTrace();
             return false;
         }
