@@ -41,7 +41,7 @@ curator:
   retryCount: 5
   # 重试间隔时间
   elapsedTimeMs: 5000
-  # zookeeper 地址
+  # zookeeper 地址 多个地址用,隔开
   connectString: 127.0.0.1:2181
   # session 超时时间
   sessionTimeoutMs: 60000
