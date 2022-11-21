@@ -14,7 +14,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <xxl-job.version>2.3.0</xxl-job.version>
+        <xxl-job.version>2.3.1</xxl-job.version>
     </properties>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.xuxueli/xxl-job-core -->
